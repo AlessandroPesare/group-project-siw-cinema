@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Inserimento film</title>
+</head>
+<body>
+	<form th:action="@{/film}" method="post" th:object="${film}">
+		<div>
+			titolo: <input type="text" th:field="*{nome}" />
+			<div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></div>
+		</div>
+		<div>
+			descrizione: <input type="text" th:field="*{descrizione}" />
+			<div th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}"></div>
+		</div>
+		<div>
+			genere: <input type="text" th:field="*{genere}" />
+			<div th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></div>
+		</div>
+		<div>
+			regista: <input type="text" th:field="*{regista}" />
+			<div th:if="${#fields.hasErrors('regista')}" th:errors="*{regista}"></div>
+		</div>
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+	</form>
+</body>
+</html>
