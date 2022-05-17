@@ -1,5 +1,8 @@
 package it.uniroma3.siw.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +20,12 @@ public class FilmService {
 		return repo.findByTitolo(titolo);
 	}
 	
-	public void iniziaInserimentoFilm() {
-		
+	public List<Film> findAll(){
+		List<Film> films = new ArrayList<Film>();
+		for(Film film: repo.findAll()) {
+			films.add(film);
+		}
+		return films;
 	}
 	
 	@Transactional

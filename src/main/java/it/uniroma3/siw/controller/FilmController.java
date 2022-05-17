@@ -1,5 +1,7 @@
 package it.uniroma3.siw.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,13 @@ public class FilmController {
 	public String getFilmForm(Model model) {
 		model.addAttribute("film", new Film());
 		return "filmForm.html";
+	}
+	
+	@GetMapping("/films")
+	public String getFilms(Model model) {
+		List<Film> films = filmService.findAll();
+		model.addAttribute("films", films);
+		return "films.html";
 	}
 	
 	@PostMapping("/film")
