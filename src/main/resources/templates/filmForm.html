@@ -7,7 +7,7 @@
 <body>
 	<form th:action="@{/film}" method="post" th:object="${film}">
 		<div>
-			titolo: <input type="text" th:field="*{nome}" />
+			titolo: <input type="text" th:field="*{titolo}" />
 			<div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></div>
 		</div>
 		<div>

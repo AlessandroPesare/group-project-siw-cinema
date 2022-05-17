@@ -30,6 +30,6 @@ public class FilmController {
 			model.addAttribute("film", film);
 			return "film.html";
 		}
-		else return "filmForm.html"; // per ora, se film non esiste, ti riporta a homepage
+		else return "filmForm.html";
 	}
 }
