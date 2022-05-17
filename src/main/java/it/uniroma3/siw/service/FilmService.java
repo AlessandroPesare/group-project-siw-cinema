@@ -1,5 +1,7 @@
 package it.uniroma3.siw.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,14 @@ public class FilmService {
 	
 	public Film getFilm(String titolo) {
 		return repo.findByTitolo(titolo);
+	}
+	
+	public void iniziaInserimentoFilm() {
+		
+	}
+	
+	@Transactional
+	public void addFilm(Film film) {
+		repo.save(film);
 	}
 }
