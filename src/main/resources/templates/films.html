@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<!-- <link href="/css/my-style.css" rel="stylesheet">  -->
+<title>Elenco film</title>
+</head>
+<body>
+	<div>
+		<h4>Elenco film:</h4>
+		<ul>
+			<li th:each="film : ${films}">
+				<div th:text="${film.nome}"></div>
+				<div th:text="${film.descrizione}"></div>
+				<div th:text="${film.genere}"></div>
+				<div th:text="${film.regista}"></div>
+			</li>
+		</ul>
+	</div>
+	<footer>
+		<a href="/">Home</a>
+	</footer>
+</body>
+</html>
