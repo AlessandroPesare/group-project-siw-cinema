@@ -1,13 +1,10 @@
 package it.uniroma3.siw.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -23,9 +20,10 @@ public class Film {
 	@NotBlank
 	private String descrizione;
 	
-	@ManyToMany
+/*
+ * 	@ManyToMany
 	private List<Sala> sale;
-	
+*/	
 	@NotBlank
 	private String genere;
 	
@@ -64,12 +62,12 @@ public class Film {
 		this.descrizione = descrizione;
 	}
 
-	public List<Sala> getSale() {
-		return sale;
-	}
-
-	public void setSale(List<Sala> sale) {
-		this.sale = sale;
-	}
+//	public List<Sala> getSale() {
+//		return sale;
+//	}
+//
+//	public void setSale(List<Sala> sale) {
+//		this.sale = sale;
+//	}
 
 }
