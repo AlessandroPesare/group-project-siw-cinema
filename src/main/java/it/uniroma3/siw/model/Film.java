@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Film {
@@ -23,12 +23,13 @@ public class Film {
 	@NotBlank
 	private String descrizione;
 	
+	@ManyToMany
 	private List<Sala> sale;
 	
 	@NotBlank
 	private String genere;
 	
-	@NotNull
+	@NotBlank
 	private String regista;
 	
 	public String getGenere() {
