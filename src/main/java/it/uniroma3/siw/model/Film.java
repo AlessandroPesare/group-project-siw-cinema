@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Film {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -58,12 +59,12 @@ public class Film {
 		this.descrizione = descrizione;
 	}
 
-//	public List<Sala> getSale() {
-//		return sale;
-//	}
-//
-//	public void setSale(List<Sala> sale) {
-//		this.sale = sale;
-//	}
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 }

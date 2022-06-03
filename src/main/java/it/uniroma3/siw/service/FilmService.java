@@ -2,7 +2,6 @@ package it.uniroma3.siw.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,22 +13,29 @@ import it.uniroma3.siw.repository.FilmRepository;
 @Service
 public class FilmService {
 	@Autowired
-	private FilmRepository repo;
+	private FilmRepository filmRepo;
 	
 	public Film getFilm(String titolo) {
-		return repo.findByTitolo(titolo);
+		return filmRepo.findByTitolo(titolo);
 	}
 	
 	public List<Film> findAll(){
 		List<Film> films = new ArrayList<Film>();
-		for(Film film: repo.findAll()) {
+		for(Film film: filmRepo.findAll()) {
 			films.add(film);
 		}
 		return films;
 	}
+	public Film findById(Long id) {
+		return this.filmRepo.findById(id).get();	
+	}
 	
 	@Transactional
 	public void addFilm(Film film) {
-		repo.save(film);
+		filmRepo.save(film);
+	}
+
+	public void deleteById(Long id) {
+		this.filmRepo.deleteById(id);
 	}
 }
