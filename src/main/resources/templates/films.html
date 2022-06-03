@@ -18,6 +18,8 @@
 			<td><a href="film.html"
 				th:href="@{'/toDeleteFilm' + '/' +${film.id}}" th:text="cancella">cancella</a>
 			</td>
+			<td> <a th:href="@{'/prenotazione'+'/'+ ${film.id}}"/> </td>
+			
 	</table>
 	<footer>
 		<a href="/">Home</a>

@@ -18,6 +18,8 @@ public class PrenotazioneController {
 
 	@Autowired
 	PrenotazioneService ps;
+	@Autowired 
+	SpettacoloService ss;
 	
 	@PostMapping("/prenotazione")
 	public String addPrenotazione(@Valid Prenotazione prenotazione, BindingResult br, Model model) {
@@ -29,13 +31,15 @@ public class PrenotazioneController {
 		return "prenotazioneForm.html";
 	}
 	
-	@GetMapping("/prenotazione")
-	public String getPrenotazione(Model model) {
+	@GetMapping("/prenotazione/{id}")
+	public String getPrenotazione(@PathVariable("id") Long id, Model model) {
+		List<Spettacolo> spettacoli = ss.findAllSpettacolioPerFilm(id);
+		model.addAttribute("spettacoli", spettacoli);
 		model.addAttribute("prenotazione", new Prenotazione());
 		return "prenotazioneForm.html";
 	}
 	
-	@PostMapping("/deletePrenotazione")
+	@PostMapping("/deletePrenotazione/{id}")
 	public String deletePrenotazione(@PathVariable("id") Long id, Model model) {
 		Prenotazione prenotazione = ps.findById(id);
 		ps.deletePrenotazione(prenotazione);
