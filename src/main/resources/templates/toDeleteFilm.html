@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Conferma Cancellazione</title>
+</head>
+<body>
+	<h1>Film da cancellare:</h1>
+	<div>
+		<span th:text="${film.titolo}">..</span> <span
+			th:text="${film.descrizione}">..</span>
+	</div>
+	<div><a href = "film.html" th:href ="@{'/deleteFilm' + '/' +${film.id}}"
+				th:text = "CONFERMA">CONFERMA</a>
+	</div>
+</body>
+</html>

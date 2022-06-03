@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<!-- <link href="/css/my-style.css" rel="stylesheet">  -->
-<title>Elenco film</title>
+<title>Films</title>
 </head>
 <body>
-	<div>
-		<h4>Elenco film:</h4>
-		<ul>
-			<li th:each="film : ${films}">
-				<div th:text="${film.nome}"></div>
-				<div th:text="${film.descrizione}"></div>
-				<div th:text="${film.genere}"></div>
-				<div th:text="${film.regista}"></div>
-			</li>
-		</ul>
-	</div>
+	<h1>Elenco Film:</h1>
+	<table>
+		<tr>
+			<th>Titolo</th><th>Descrizione</th>
+		</tr>
+		<tr th:each="film : ${films}">
+			<td th:text="${film.titolo}">Titolo</td>
+			<td th:text="${film.descrizione}">Descrizione</td>
+			<td><a href="film.html" th:href="@{'/film' + '/' + ${film.id}}"
+				th:text="dettagli">dettagli</a></td>
+			<td><a href="film.html"
+				th:href="@{'/toDeleteFilm' + '/' +${film.id}}" th:text="cancella">cancella</a>
+			</td>
+	</table>
 	<footer>
 		<a href="/">Home</a>
 	</footer>

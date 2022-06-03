@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Film;
@@ -41,4 +42,18 @@ public class FilmController {
 		}
 		else return "filmForm.html";
 	}
+	
+	@GetMapping("/toDeleteFilm/{id}")
+	public String toDeleteFilm(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("film", filmService.findById(id));
+		return "toDeleteFilm.html";
+	}
+	
+	@GetMapping("/deleteFilm/{id}")
+	public String deleteFilm(@PathVariable("id") Long id, Model model) {
+		filmService.deleteById(id);
+		model.addAttribute("films", filmService.findAll());
+		return "films.html";
+	}
+	
 }
