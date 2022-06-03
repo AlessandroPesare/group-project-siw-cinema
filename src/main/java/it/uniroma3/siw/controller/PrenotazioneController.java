@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -26,13 +27,13 @@ public class PrenotazioneController {
 	SpettacoloService ss;
 	
 	@PostMapping("/prenotazione")
-	public String addPrenotazione(@Valid Prenotazione prenotazione, BindingResult br, Model model) {
+	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
 		if(!br.hasErrors()) {
 			ps.addPrenotazione(prenotazione);
 			model.addAttribute("prenotazione", prenotazione);
 			return "prenotazione.html";
 		} else
-		return "prenotazioneForm.html";
+		return "index.html";
 	}
 	
 	@GetMapping("/prenotazione/{id}")
