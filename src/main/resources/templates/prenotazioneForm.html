@@ -6,6 +6,7 @@
 </head>
 <body>
 	<form th:action="@{/prenotazione}" method="post" th:object="${prenotazione}">
-		<input th:each="spettacolo : ${spettacoli}" type="radio" value="${spettacolo}" th:field="*{spettacolo}" th:text="${spettacolo.dataConOra}+','+${spettacolo.sala.nome}"/>
-	<button type="submit">Conferma</button>
+	<select th:field="*{spettacolo}">
+		<option  th:each="spet : ${spettacoli}" th:value="${spet.id}" th:text="${spet.dataConOra}+' '+${spet.sala.nome}"></option>
+		</select> </div>	<button type="submit">Conferma</button>
 	</form>
