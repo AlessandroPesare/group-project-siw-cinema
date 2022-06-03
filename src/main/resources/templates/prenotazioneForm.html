@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Scegli spettacolo</title>
+</head>
+<body>
+	<form th:action="@{/prenotazione}" method="post" th:object="${prenotazione}">
+		<input th:each="spettacolo : ${spettacoli}" type="radio" value="${spettacolo}" th:field="*{spettacolo}" th:text="${spettacolo.dataConOra}+','+${spettacolo.sala.nome}"/>
+	<button type="submit">Conferma</button>
+	</form>

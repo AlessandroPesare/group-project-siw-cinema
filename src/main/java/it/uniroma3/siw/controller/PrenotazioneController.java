@@ -1,5 +1,7 @@
 package it.uniroma3.siw.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Prenotazione;
+import it.uniroma3.siw.model.Spettacolo;
 import it.uniroma3.siw.service.PrenotazioneService;
+import it.uniroma3.siw.service.SpettacoloService;
 
 @Controller
 public class PrenotazioneController {
@@ -33,7 +37,7 @@ public class PrenotazioneController {
 	
 	@GetMapping("/prenotazione/{id}")
 	public String getPrenotazione(@PathVariable("id") Long id, Model model) {
-		List<Spettacolo> spettacoli = ss.findAllSpettacolioPerFilm(id);
+		List<Spettacolo> spettacoli = ss.findAllSpettacoliPerFilm(id);
 		model.addAttribute("spettacoli", spettacoli);
 		model.addAttribute("prenotazione", new Prenotazione());
 		return "prenotazioneForm.html";
