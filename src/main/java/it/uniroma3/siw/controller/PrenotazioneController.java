@@ -30,6 +30,7 @@ public class PrenotazioneController {
 	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
 		if(!br.hasErrors()) {
 			ps.addPrenotazione(prenotazione);
+			ss.aggiornaPostiDisponibili(prenotazione.getSpettacolo());
 			model.addAttribute("prenotazione", prenotazione);
 			return "prenotazione.html";
 		} else

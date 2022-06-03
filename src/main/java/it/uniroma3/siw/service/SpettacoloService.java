@@ -16,4 +16,10 @@ public class SpettacoloService {
 	public List<Spettacolo> findAllSpettacoliPerFilm(Long idFilm) {
 		return repo.findByFilmId(idFilm);
 	}
+	
+	public void aggiornaPostiDisponibili(Spettacolo spettacolo) {
+		spettacolo.setNumeroPosti(spettacolo.getNumeroPosti()-1);
+		repo.save(spettacolo);
+		
+	}
 }
