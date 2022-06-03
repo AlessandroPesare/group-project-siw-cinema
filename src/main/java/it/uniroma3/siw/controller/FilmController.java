@@ -56,4 +56,10 @@ public class FilmController {
 		return "films.html";
 	}
 	
+	@GetMapping("/film/{id}")
+	public String getFilm(@PathVariable("id") Long id, Model model){
+		Film film = filmService.findById(id);
+		model.addAttribute("film", film);
+		return "film.html";	
+	}
 }
