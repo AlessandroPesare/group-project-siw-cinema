@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Dettagli Prenotazione</title>
+</head>
+<body>
+	<div>
+		<h4>Dettagli Prenotazione</h4>
+		<div>
+			<div th:text="${prenotazione.spettacolo.dataConOra}"></div>
+			<div th:text="${prenotazione.spettacolo.numeroPosti}"></div>
+			<div th:text="${prenotazione.spettacolo.film.titolo}"></div>
+		</div>
+	</div>
+	<footer>
+		<a href="/">Home</a>
+	</footer>
+</body>
+</html>
