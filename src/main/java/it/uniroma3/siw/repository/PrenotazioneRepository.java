@@ -2,6 +2,8 @@ package it.uniroma3.siw.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface PrenotazioneRepository extends CrudRepository<T, ID> {
+import it.uniroma3.siw.model.Prenotazione;
+
+public interface PrenotazioneRepository extends CrudRepository<Prenotazione, Long> {
 
 }
