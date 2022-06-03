@@ -20,10 +20,6 @@ public class Film {
 	@NotBlank
 	private String descrizione;
 	
-/*
- * 	@ManyToMany
-	private List<Sala> sale;
-*/	
 	@NotBlank
 	private String genere;
 	

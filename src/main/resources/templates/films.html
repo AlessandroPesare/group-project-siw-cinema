@@ -10,7 +10,7 @@
 		<h4>Elenco film:</h4>
 		<ul>
 			<li th:each="film : ${films}">
-				<div th:text="${film.nome}"></div>
+				<div th:text="${film.titolo}"></div>
 				<div th:text="${film.descrizione}"></div>
 				<div th:text="${film.genere}"></div>
 				<div th:text="${film.regista}"></div>
