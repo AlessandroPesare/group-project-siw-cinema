@@ -51,9 +51,11 @@ public class AuthenticationController {
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
     	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-            return "indexAdmin.html";
+    		model.addAttribute("amministratoreLoggato",true);
+            return "index.html";
         }
-        return "indexUser.html";
+		model.addAttribute("userLoggato",true);
+        return "index.html";
     }
 	
     @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
