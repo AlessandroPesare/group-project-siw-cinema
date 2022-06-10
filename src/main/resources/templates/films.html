@@ -15,10 +15,10 @@
 			<td th:text="${film.descrizione}">Descrizione</td>
 			<td><a href="film.html" th:href="@{'/film' + '/' + ${film.id}}"
 				th:text="dettagli">dettagli</a></td>
-			<td><a href="film.html"
+			<td><a th:if="${amministratoreLoggato}" href="film.html"
 				th:href="@{'/toDeleteFilm' + '/' +${film.id}}" th:text="cancella">cancella</a>
 			</td>
-			<td> <a th:href="@{'/prenotazione'+'/'+ ${film.id}}"/>prenota </td>
+			<td> <a th:if="${userLoggato}" th:href="@{'/prenotazione'+'/'+ ${film.id}}" th:text="prenota">prenota </a></td>
 			
 	</table>
 	<footer>
