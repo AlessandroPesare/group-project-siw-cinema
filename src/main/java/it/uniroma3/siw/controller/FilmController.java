@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,11 +14,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.Film;
+import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.FilmService;
 
 @Controller
 public class FilmController {
+	@Autowired
+	private CredentialsService credentialsService;
 	@Autowired
 	private FilmService filmService;
 	
@@ -30,7 +36,20 @@ public class FilmController {
 	public String getFilms(Model model) {
 		List<Film> films = filmService.findAll();
 		model.addAttribute("films", films);
-		return "films.html";
+		try {
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+    	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
+    		model.addAttribute("amministratoreLoggato",true);
+        }
+    	else if(credentials.getRole().equals(Credentials.DEFAULT_ROLE)) {
+    		model.addAttribute("userLoggato",true);
+    	}
+		return "films.html"; }
+		catch(Exception e)
+		{
+			return "films.html";
+		}
 	}
 	
 	@PostMapping("/film")
