@@ -11,8 +11,8 @@
     <div><a  href="/films"><strong> FILM </strong></a></div>
     <div><a><strong> PROGRAMMAZIONE </strong></a></div>
     <div><strong>CHI SIAMO</strong></a> </div>
-    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a></div>
-  	<div><a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
+  <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
   </div>
  
   

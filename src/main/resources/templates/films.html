@@ -1,28 +1,55 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Films</title>
-</head>
+<meta charset="utf-8">
+ <title>Cinema Siw</title>
+  <link rel="stylesheet" href="/films.css" ></link>
+ </head>
+<header>
+   <h1> CINEMA SIW </h1>
+  <div class="navigationMenu">
+     <div><a  href="/films"><strong> FILM </strong></a></div>
+    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><strong>CHI SIAMO</strong></a> </div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
+  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+ </div>
+ 
+  
+</div>
+</header>
 <body>
-	<h1>Elenco Film:</h1>
-	<table>
-		<tr>
-			<th>Titolo</th><th>Descrizione</th>
-		</tr>
-		<tr th:each="film : ${films}">
-			<td th:text="${film.titolo}">Titolo</td>
-			<td th:text="${film.descrizione}">Descrizione</td>
-			<td><a href="film.html" th:href="@{'/film' + '/' + ${film.id}}"
-				th:text="dettagli">dettagli</a></td>
-			<td><a th:if="${amministratoreLoggato}" href="film.html"
-				th:href="@{'/toDeleteFilm' + '/' +${film.id}}" th:text="cancella">cancella</a>
-			</td>
-			<td> <a th:if="${userLoggato}" th:href="@{'/prenotazione'+'/'+ ${film.id}}" th:text="prenota">prenota </a></td>
-			
-	</table>
-	<footer>
-		<a href="/">Home</a>
-	</footer>
+<div id="flexBody">
+    <h1>I FILM IN PROGRAMMA</h1>
+    <hr width="92%" color="steelBlue" size="5%"></hr>
+    <div id="elementoLista" th:each="film : ${films}">
+  
+      <div  class="Item">
+      <a  th:href="@{'/film' + '/' + ${film.id}}" class="filmLink">
+      <h3 th:text="${film.titolo}">titolo film </h3>
+      <text th:text="${film.descrizione}">descrizione</text>
+         </a>
+      </div>
+        <div class="Azione" th:if="${amministratoreLoggato}">
+       <form th:action="@{'/toDeleteFilm' + '/' +${film.id}}" method="post">
+          <button type="submit" >Elimina</button>
+       </form>
+      </div>
+      <div  class="Azione" th:if="${userLoggato}">
+       <form th:action="@{'/prenotazione'+'/'+ ${film.id}}" method="post">
+           <button type="submit" >Prenota</button>
+       </form>
+      </div>
+
+</div>
+  </div>
 </body>
+<footer>
+  <div id="footerFlex">
+  <text><strong>Cinema Siw</strong></text>
+  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
+  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+</div>
+</footer>
 </html>
