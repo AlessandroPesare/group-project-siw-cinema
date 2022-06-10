@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>I nostri spettacoli</title>
+</head>
+<body>
+	<h2>Ecco l'elenco degli spettacoli disponibili:</h2>
+	<ul>
+		<li th:each="sp : ${allSpettacoli}" 
+		th:text="${sp.film.titolo} + ': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} 
+		+ ' con ' + ${sp.numeroPosti} + ' posti disponibili' ">
+	</ul>
+	<footer>
+		<a href="/">Torna alla homepage</a>
+	</footer>
+</body>
+</html>

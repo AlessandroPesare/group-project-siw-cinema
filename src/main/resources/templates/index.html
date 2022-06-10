@@ -9,10 +9,17 @@
    <h1> CINEMA SIW </h1>
   <div class="navigationMenu">
     <div><a  href="/films"><strong> FILM </strong></a></div>
+<<<<<<< HEAD
     <div><a><strong> PROGRAMMAZIONE </strong></a></div>
     <div><strong>CHI SIAMO</strong></a> </div>
     <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
   <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+=======
+    <div><a href="/spettacoli"><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><strong>CHI SIAMO</strong> </div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a></div>
+  	<div><a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+>>>>>>> e8e5ebbd405dda864df4132200c9d0bb70350acd
   </div>
  
   
