@@ -14,6 +14,7 @@ public class SpettacoloController {
 	
 	@GetMapping("/spettacoli")
 	public String getTuttiSpettacoli(Model model) {
-		return null;
+		model.addAttribute("allSpettacoli", service.findAllSpettacoli());
+		return "spettacoli.html";
 	}
 }

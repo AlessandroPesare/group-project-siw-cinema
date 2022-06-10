@@ -20,6 +20,9 @@ public class SpettacoloService {
 	public void aggiornaPostiDisponibili(Spettacolo spettacolo) {
 		spettacolo.setNumeroPosti(spettacolo.getNumeroPosti()-1);
 		repo.save(spettacolo);
-		
+	}
+	
+	public List<Spettacolo> findAllSpettacoli() {
+		return (List<Spettacolo>) repo.findAll();
 	}
 }
