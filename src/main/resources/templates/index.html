@@ -5,8 +5,9 @@
 <title>Homepage</title>
 </head>
 <body>
-  <div><a href="/films">FILM</a> <a> PROGRAMMAZIONE </a>  <a>CHI SIAMO</a> LOGIN</div>
-  
+  <div> <span> <a href="/films">FILM</a> <a> PROGRAMMAZIONE </a>  <a>CHI SIAMO</a> 
+  <a th:unless="${userLoggato}"th:href="@{/login}">LOGIN</a> 
+  <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a> </span> </div>
   <form>
     Che film vuoi vedere?
     <input ></input>
@@ -15,14 +16,5 @@
   </form>
   <a> Collegamento al film trovato </a>
 <body>
-<div>
-	<span> <a> FILM</a> <a> PROGRAMMAZIONE </a> <a>CHI SIAMO</a> <a th:href = "@{login}">LOGIN</a> </span>
-</div>
-<form>
-	Che film vuoi vedere? <input></input>
-	<button>Cerca</button>
-	<button>Tutti i film</button>
-</form>
-<a> Collegamento al film trovato </a>
 </body>
 </html>
