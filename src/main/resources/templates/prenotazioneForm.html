@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Scegli spettacolo</title>
-</head>
+<meta charset="utf-8">
+ <title>Cinema Siw</title>
+  <link rel="stylesheet" href="/prenotazioneForm.css" ></link>
+ </head>
+<header>
+   <h1> CINEMA SIW </h1>
+  <div class="navigationMenu">
+     <div><a  href="/films"><strong> FILM </strong></a></div>
+    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><strong>CHI SIAMO</strong></a> </div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
+  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+ </div>
+</div>
+</header>
 <body>
+  <h3> Seleziona lo spettacolo che preferisci </h3>
 	<form th:action="@{/prenotazione}" method="post" th:object="${prenotazione}">
 	<select th:field="*{spettacolo}">
 		<option  th:each="spet : ${spettacoli}" th:value="${spet.id}" th:text="${spet.dataConOra}+' '+${spet.sala.nome}"></option>
-		</select> </div>	<button type="submit">Conferma</button>
+		</select> </div>	
+    <button type="submit">Conferma</button>
 	</form>
+</body>
+<footer>
+  <div id="footerFlex">
+  <text><strong>Cinema Siw</strong></text>
+  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
+  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+</div>
+</footer>
+</html>

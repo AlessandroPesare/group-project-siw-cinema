@@ -1,21 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Dettagli film</title>
-</head>
-<body>
-	<div>
-		<h4>Dettagli film</h4>
-		<div>
-			<div th:text="${film.titolo}"></div>
-			<div th:text="${film.descrizione}"></div>
-			<div th:text="${film.genere}"></div>
-			<div th:text="${film.regista}"></div>
-		</div>
-	</div>
-	<footer>
-		<a href="/">Home</a>
-	</footer>
+<meta charset="utf-8">
+ <title>Cinema Siw</title>
+  <link rel="stylesheet" href="/film.css" ></link>
+ </head>
+<header>
+   <h1> CINEMA SIW </h1>
+  <div class="navigationMenu">
+     <div><a  href="/films"><strong> FILM </strong></a></div>
+    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><strong>CHI SIAMO</strong></a> </div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
+  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+ </div>
+</div>
+</header>
+ <body>
+<div id="flexBody">
+    <h1 th:text="${film.titolo}">titolo</h1>
+    <hr width="92%" color="steelBlue" size="5%"></hr>
+   <p  th:text="${film.descrizione}">descrizione film brellissimo ecc eccecc</p>
+   <div class="line">
+     <h4>GENERE:</h4>
+     <text th:text="${film.genere}">genere </text>
+   </div>
+   <div class="line">
+     <h4>REGISTA:</h4>
+     <text th:text="${film.regista}">nome del regista </text>
+   </div>
+ </div>
 </body>
+<footer>
+  <div id="footerFlex">
+  <text><strong>Cinema Siw</strong></text>
+  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
+  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+</div>
+</footer>
 </html>

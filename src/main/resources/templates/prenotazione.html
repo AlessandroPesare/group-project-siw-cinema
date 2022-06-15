@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Dettagli Prenotazione</title>
-</head>
+<meta charset="utf-8">
+ <title>Cinema Siw</title>
+  <link rel="stylesheet" href="/riepilogoPrenotazione.css" ></link>
+ </head>
+<header>
+   <h1> CINEMA SIW </h1>
+  <div class="navigationMenu">
+     <div><a  href="/films"><strong> FILM </strong></a></div>
+    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><strong>CHI SIAMO</strong></a> </div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
+  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+ </div>
+</div>
+</header>
 <body>
-	<div>
-		<h4>Dettagli Prenotazione</h4>
-		<div>
-			<div th:text="${prenotazione.spettacolo.dataConOra}"></div>
-			<div th:text="${prenotazione.spettacolo.numeroPosti}"></div>
-			<div th:text="${prenotazione.spettacolo.film.titolo}"></div>
-			<div th:text="${prenotazione.spettacolo.sala.nome}"></div>
-		</div>
-	</div>
-	<footer>
-		<a href="/">Home</a>
-	</footer>
+<h2>RIEPILOGO PRENOTAZIONE </h2>
+
+  <h5 div th:text="${prenotazione.spettacolo.film.titolo}"> titolo del film </h5>
+  <h6 th:text="'SALA '+${prenotazione.spettacolo.sala.nome}"+', '+ ${prenotazione.spettacolo.dataConOra}> SALA 4, 21/07/22 14:30 </h6>
 </body>
+<footer>
+  <div id="footerFlex">
+  <text><strong>Cinema Siw</strong></text>
+  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
+  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+</div>
+</footer>
 </html>

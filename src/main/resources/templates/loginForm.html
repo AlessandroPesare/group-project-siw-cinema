@@ -1,23 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Login</title>
-</head>
-<body>
-	<form th:action="@{/login}" method="post">
-		<div>
-			username: <input type="text" name="username" />
-		</div>
-		<div>
-			password: <input type="text" name="password" />
-		</div>
-		<div>
-			<button type="submit">Conferma</button>
-		</div>
-		<div> Non sei ancora Registrato? Fallo subito!
-			<a th:href="@{/register}">Registrati</a>		
-		</div>
-	</form>
+<meta charset="utf-8">
+ <title>Cinema Siw</title>
+  <link rel="stylesheet" href="/login.css" ></link>
+ </head>
+<header>
+   <h1> CINEMA SIW </h1>
+  <div class="navigationMenu">
+     <div><a  href="/films"><strong> FILM </strong></a></div>
+    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><strong>CHI SIAMO</strong></a> </div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
+  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+ </div>
+</div>
+</header>
+ <body>
+  <h1> Login</h1>
+<form th:action="@{/login}" method="post">
+<div class="campo">username:<input type="text" name="username" /></div>
+<div class="campo">password:<input type="text" name="password" /></div>
+<button type="submit">Conferma</button></div>
+</form>
+<div> Non sei ancora Registrato? Fallo subito!</div>
+<a th:href="@{/register}"><strong>Registrati<strong></a>		
+
 </body>
+<footer>
+  <div id="footerFlex">
+  <text><strong>Cinema Siw</strong></text>
+  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
+  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+</div>
+</footer>
 </html>

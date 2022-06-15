@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-<meta charset="ISO-8859-1" />
-<title>Conferma Cancellazione</title>
-</head>
+<meta charset="utf-8">
+ <title>Cinema Siw</title>
+  <link rel="stylesheet" href="/toDeleteFilm.css" ></link>
+ </head>
+<header>
+   <h1> CINEMA SIW </h1>
+  <div class="navigationMenu">
+     <div><a  href="/films"><strong> FILM </strong></a></div>
+    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><strong>CHI SIAMO</strong></a> </div>
+    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
+  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
+ </div>
+</div>
+</header>
 <body>
-	<h1>Film da cancellare:</h1>
-	<div>
-		<span th:text="${film.titolo}">..</span> <span
-			th:text="${film.descrizione}">..</span>
+  <h2>Conferma l'eliminazione</h2>
+  
+	<div class="item" th:text="'Vuoi davvero eliminare il film ' + ${film.titolo} + '? Tutti i dati andranno persi'">..</div>
+	
+	<div class="item"><button type="submit" th:formaction="@{@{'/deleteFilm' + '/' +${film.id}}}" formmethod="get" th:text = "CONFERMA">CONFERMA</button>
 	</div>
-	<div><a href = "film.html" th:href ="@{'/deleteFilm' + '/' +${film.id}}"
-				th:text = "CONFERMA">CONFERMA</a>
-	</div>
-</body>
+  </body>
+<footer>
+  <div id="footerFlex">
+  <text><strong>Cinema Siw</strong></text>
+  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
+  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+</div>
+</footer>
 </html>
