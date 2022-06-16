@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>Cinema Siw</title>
@@ -17,15 +17,12 @@
 			<a><strong> PROGRAMMAZIONE </strong></a>
 		</div>
 		<div>
-			<strong>CHI SIAMO</strong></a>
+			<strong>CHI SIAMO</strong>
 		</div>
 		<div>
 			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>
 					LOGIN </strong></a> <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a>
 		</div>
-	</div>
-
-
 	</div>
 </header>
 <body>
@@ -33,11 +30,10 @@
 		<h1>I FILM IN PROGRAMMA</h1>
 		<hr width="92%" color="steelBlue" size="5%"></hr>
 		<div id="elementoLista" th:each="film : ${films}">
-
 			<div class="Item">
-				<a th:href="@{'/film' + '/' + ${film.id}}" class="filmLink">
-					<h3 th:text="${film.titolo}">titolo film</h3> <text
-						th:text="${film.descrizione}">descrizione</text>
+				<a th:href="@{'/film' + '/' + ${film.id}}" class="filmLink"> <span
+					th:text="${film.titolo}">titolo film</span> <span
+					th:text="${film.descrizione}">descrizione</span>
 				</a>
 			</div>
 			<div class="Azione" th:if="${amministratoreLoggato}">
@@ -45,27 +41,25 @@
 					<button type="submit">Elimina</button>
 				</form>
 				<div class="Azione" th:if="${amministratoreLoggato}">
-					<form th:action="@{'/film'}"
-						method="post">
+					<form th:action="@{'/film' + '/' +${film.id}}" method="post">
 						<button type="submit">Inserisci film</button>
 					</form>
 				</div>
-				<div th:if="${userLoggato}">
-					<form th:action="@{'/prenotazione'+'/'+ ${film.id}}" method="post">
-						<button type="submit">Prenota</button>
-					</form>
+				<div>
+					<button type="submit">Prenota</button>
 				</div>
-
 			</div>
 		</div>
-</body>
-<footer>
-	<div id="footerFlex">
-		<text>
-		<strong>Cinema Siw</strong></text>
-		<text>Via della Vasca Navale, 79 - 00146 - Roma </text>
-		<a href="tel:+39 3210456789">Tel. +39 3210456789</a> <a
-			href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
 	</div>
-</footer>
+	<footer>
+		<div id="footerFlex">
+			<div>
+				<strong>Cinema Siw</strong>
+			</div>
+			<div>Via della Vasca Navale, 79 - 00146 - Roma</div>
+			<a href="tel:+39 3210456789">Tel. +39 3210456789</a> <a
+				href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+		</div>
+	</footer>
+</body>
 </html>
