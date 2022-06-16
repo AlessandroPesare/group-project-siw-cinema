@@ -7,6 +7,26 @@
 <link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
 </head>
+<header>
+	<h1>
+		<a href="/">CINEMA SIW</a>
+	</h1>
+	<div class="navigationMenu">
+		<div>
+			<a href="/films"><strong> FILM </strong></a>
+		</div>
+		<div>
+			<a><strong> PROGRAMMAZIONE </strong></a>
+		</div>
+		<div>
+			<strong>CHI SIAMO</strong></a>
+		</div>
+		<div>
+			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>
+					LOGIN </strong></a> <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a>
+		</div>
+	</div>
+</header>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
 	
@@ -14,28 +34,28 @@
 		<h1>I FILM IN PROGRAMMA</h1>
 		<hr width="92%" color="steelBlue" size="5%"></hr>
 		<div id="elementoLista" th:each="film : ${films}">
+
 			<div class="Item">
-				<a th:href="@{'/film' + '/' + ${film.id}}" class="filmLink"> <span
-					th:text="${film.titolo}">titolo film</span> <span
-					th:text="${film.descrizione}">descrizione</span>
+				<a th:href="@{'/film' + '/' + ${film.id}}" class="filmLink">
+					<h3 th:text="${film.titolo}">titolo film</h3> <text
+						th:text="${film.descrizione}">descrizione</text>
 				</a>
 			</div>
 			<div class="Azione" th:if="${amministratoreLoggato}">
 				<form th:action="@{'/toDeleteFilm' + '/' +${film.id}}" method="post">
 					<button type="submit">Elimina</button>
 				</form>
-				<div class="Azione" th:if="${amministratoreLoggato}">
-					<form th:action="@{'/film' + '/' +${film.id}}" method="post">
-						<button type="submit">Inserisci film</button>
-					</form>
-				</div>
-				<div>
-					<button type="submit">Prenota</button>
-				</div>
 			</div>
+			<div class="Azione" th:if="${userLoggato}">
+				<form th:action="@{'/prenotazione'+'/'+ ${film.id}}" method="post">
+					<button type="submit">Prenota</button>
+				</form>
+			</div>
+
 		</div>
 	</div>
 	
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
+</footer>
 </html>

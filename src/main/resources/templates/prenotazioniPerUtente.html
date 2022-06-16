@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout.html :: bootstrap">
+<meta charset="utf-8">
+<title>Cinema Siw</title>
+<link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
+
+</head>
+<body>
+	<header th:replace="fragments/layout.html :: navbar"> </header>
+	<section>
+		<div>
+			<h1>Elenco delle tue prenotazioni</h1>
+		</div>
+		<br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nome film</th>
+					<th scope="col">Data e ora spettacolo</th>
+					<th scope="col">Sala</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="prenotazione: ${prenotazioni}">
+					<td th:text="${prenotazione.spettacolo.film.titolo}"></td>
+					<td th:text="${prenotazione.spettacolo.dataConOra}"></td>
+					<td th:text="${prenotazione.spettacolo.sala.nome}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<div th:replace="fragments/layout.html :: jsFiles"></div>
+</body>
+</html>
