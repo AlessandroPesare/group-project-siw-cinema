@@ -64,9 +64,33 @@ form div{
 }
 
 input{
-  width: 50%;
+  width: 350px;
     text-align: center;
 }
+
+button{
+  background-color: azure;
+  border-radius: 40%;
+  font-size: 70%;
+  border-color: steelBlue;
+}
+
+button:hover{
+  background-color: lightSkyBlue;
+}
+
+#flexForm{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 9%;
+}
+
+#tutti{
+  margin-top: -11px;
+}
+
+
 
 footer a:link{
   color:black;
