@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,8 +15,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.Prenotazione;
 import it.uniroma3.siw.model.Spettacolo;
+import it.uniroma3.siw.model.User;
+import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.PrenotazioneService;
 import it.uniroma3.siw.service.SpettacoloService;
 
@@ -25,6 +30,8 @@ public class PrenotazioneController {
 	PrenotazioneService ps;
 	@Autowired 
 	SpettacoloService ss;
+	@Autowired
+	CredentialsService cs;
 	
 	@PostMapping("/prenotazione")
 	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
@@ -35,6 +42,15 @@ public class PrenotazioneController {
 			return "prenotazione.html";
 		} else
 		return "index.html";
+	}
+	
+	@GetMapping("/prenota")
+	public String getPrenotazioni(Model model){
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = cs.getCredentials(userDetails.getUsername());
+    	User user = credentials.getUser();
+		model.addAttribute("user",user);
+		return "prenotazioniPerUtente.html";
 	}
 	
 	@GetMapping("/prenotazione/{id}")

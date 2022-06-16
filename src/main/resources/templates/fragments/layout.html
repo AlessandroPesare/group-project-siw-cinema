@@ -4,7 +4,15 @@
 <!-- ============================================================================ -->
 <!-- 							HEADER FILES          							  -->
 <!-- ============================================================================ -->
+<head th:fragment="bootstrap">
 
+<!-- bootstrap core css -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
+<!-- Custom styles -->
+<link href="/css/style.css" rel="stylesheet" />
+</head>
 <!-- ============================================================================ -->
 <!-- 							HEADER                  					      -->
 <!-- ============================================================================ -->
@@ -31,15 +39,33 @@
 <!-- 							FOOTER                  					      -->
 <!-- ============================================================================ -->
 <footer th:fragment="footer">
-		<div id="footerFlex">
-			<div> 
-				<div><strong>Cinema Siw</strong></div>
-				<div>Via della Vasca Navale, 79 - 00146 - Roma </div>
-				<div><a href="tel:+39 3210456789">Tel. +39 3210456789</a></div> 
-				<div><a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a></div>
+	<div id="footerFlex">
+		<div>
+			<div>
+				<strong>Cinema Siw</strong>
+			</div>
+			<div>Via della Vasca Navale, 79 - 00146 - Roma</div>
+			<div>
+				<a href="tel:+39 3210456789">Tel. +39 3210456789</a>
+			</div>
+			<div>
+				<a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
 			</div>
 		</div>
+	</div>
 </footer>
+
+<!-- ============================================================================ -->
+<!-- 							FILES .JS                  					      -->
+<!-- ============================================================================ -->
+<div th:fragment="jsFiles">
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<!-- bootstrap js -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+</div>
 
 </html>
 
