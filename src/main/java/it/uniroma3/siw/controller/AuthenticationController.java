@@ -1,8 +1,13 @@
 package it.uniroma3.siw.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,6 +43,21 @@ public class AuthenticationController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET) 
 	public String showLoginForm (Model model) {
 		return "loginForm.html";
+	}
+	
+	@RequestMapping(value = "/login-failed", method = RequestMethod.GET)
+	public String loginFailed(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession(false);
+		String errorMessage = null;
+		if (session != null) {
+			AuthenticationException ex = (AuthenticationException) session
+					.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+			if (ex != null) {
+				errorMessage = ex.getMessage();
+			}
+		}
+		model.addAttribute("error", true);
+		return "loginForm";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET) 
