@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.Film;
@@ -50,6 +51,22 @@ public class FilmController {
 		{
 			return "films.html";
 		}
+	}
+	
+	@GetMapping("/film/nome")
+	public String getFilmByNome(@RequestParam(name = "nome") String nome, Model model) {
+		if(!(nome == null || nome.isBlank())) {
+			Film film = filmService.findByTitolo(nome);
+			if(film != null) {
+				model.addAttribute("film", film);
+				return "film.html";
+			}
+			else {
+				// il film non esiste
+				model.addAttribute("isFilmInesistente", true);				
+			}
+		}
+		return "index.html";
 	}
 	
 	@PostMapping("/film")

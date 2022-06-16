@@ -15,8 +15,8 @@ public class FilmService {
 	@Autowired
 	private FilmRepository filmRepo;
 	
-	public Film getFilm(String titolo) {
-		return filmRepo.findByTitolo(titolo);
+	public Film findByTitolo(String titolo) {
+		return filmRepo.findByTitolo(titolo).orElse(null);
 	}
 	
 	public List<Film> findAll(){
@@ -38,4 +38,5 @@ public class FilmService {
 	public void deleteById(Long id) {
 		this.filmRepo.deleteById(id);
 	}
+	
 }

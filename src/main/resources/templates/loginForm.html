@@ -20,7 +20,7 @@
   <h1> Login</h1>
 <form th:action="@{/login}" method="post">
 <div class="campo">username:<input type="text" name="username" /></div>
-<div class="campo">password:<input type="text" name="password" /></div>
+<div class="campo">password:<input type="password" name="password" /></div>
 <button type="submit">Conferma</button></div>
 <div th:if="${error}" >
 	errore autenticazione
