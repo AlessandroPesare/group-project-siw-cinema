@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <title>Cinema Siw</title>
 <link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
-
+<link rel="stylesheet" href="/noImageBar.css"></link>
+<link rel="stylesheet" href="/footer.css"></link>
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"> </header>
@@ -31,6 +32,8 @@
 			</tbody>
 		</table>
 	</section>
+	
+	<footer th:replace="fragments/layout.html :: footer"></footer>
 	<div th:replace="fragments/layout.html :: jsFiles"></div>
 </body>
 </html>
