@@ -1,35 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
- <title>Cinema Siw</title>
-  <link rel="stylesheet" href="/spettacoli.css" ></link>
- </head>
-<header>
-   <h1> <a  href="/">CINEMA SIW</a> </h1>
-  <div class="navigationMenu">
-     <div><a  href="/films"><strong> FILM </strong></a></div>
-    <div><a href="/spettacoli"><strong> PROGRAMMAZIONE </strong></a></div>
-    <div><strong>CHI SIAMO</strong></a> </div>
-    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
-  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
- </div>
-</div>
-</header>
+<title>Cinema Siw</title>
+<link rel="stylesheet" href="/spettacoli.css"></link>
+<link rel="stylesheet" href="/noImageBar.css"></link>
+<link rel="stylesheet" href="/footer.css"></link>
+</head>
 <body>
-  <h2>Tutti gli spettacoli:</h2>
-  <ul>
-		<li th:each="sp : ${allSpettacoli}" 
-		th:text="${sp.film.titolo} + ': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} 
-		+ ' con ' + ${sp.numeroPosti} + ' posti disponibili' ">bxnmwokxmw zxmkwmxx lw x xksnxzkzm
+	<header th:replace="fragments/layout.html :: navbar"></header>
+	<h2>Tutti gli spettacoli:</h2>
+	<ul>
+		<li th:each="sp : ${allSpettacoli}"
+			th:text="${sp.film.titolo} + ': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} 
+		+ ' con ' + ${sp.numeroPosti} + ' posti disponibili' ">
 	</ul>
-  </body>
-<footer>
-  <div id="footerFlex">
-  <text><strong>Cinema Siw</strong></text>
-  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
-  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
-  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
-</div>
-</footer>
+
+	<footer th:replace="fragments/layout.html :: footer"></footer>
+</body>
 </html>

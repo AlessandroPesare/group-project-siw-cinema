@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<title>Cinema Siw</title>
 	<link rel="stylesheet" href="/index.css"></link>
+	<link rel="stylesheet" href="/navigationBar.css"></link>
+	<link rel="stylesheet" href="/footer.css"></link>
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
@@ -13,8 +15,8 @@
 		<input name="nome" placeholder="Inserisci il nome di un film" required></input>
 		<div>
 			<button type="submit">Cerca</button>
-			<div th:if="${isFilmInesistente}" th:text="#{film.inesistente}"></div>
 		</div>
+		<div th:if="${isFilmInesistente}" th:text="#{film.inesistente}"></div>
 	</form>
 	
 	<a th:href="@{/films}"><button>Tutti i film</button></a>
