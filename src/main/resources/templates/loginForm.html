@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
  <title>Cinema Siw</title>
@@ -22,6 +22,9 @@
 <div class="campo">username:<input type="text" name="username" /></div>
 <div class="campo">password:<input type="text" name="password" /></div>
 <button type="submit">Conferma</button></div>
+<div th:if="${error}" >
+	errore autenticazione
+</div>
 </form>
 <div> Non sei ancora Registrato? Fallo subito!</div>
 <a th:href="@{/register}"><strong>Registrati<strong></a>		
