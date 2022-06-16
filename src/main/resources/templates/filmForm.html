@@ -2,43 +2,66 @@
 <html>
 <head>
 <meta charset="utf-8">
- <title>Cinema Siw</title>
-  <link rel="stylesheet" href="/filmForm.css" ></link>
- </head>
+<title>Cinema Siw</title>
+<link rel="stylesheet" href="/filmForm.css"></link>
+</head>
 <header>
-   <h1> <a  href="/">CINEMA SIW</a> </h1>
-  <div class="navigationMenu">
-     <div><a  href="/films"><strong> FILM </strong></a></div>
-    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
-    <div><strong>CHI SIAMO</strong></a> </div>
-    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
-  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
- </div>
-</div>
+	<h1>
+		<a href="/">CINEMA SIW</a>
+	</h1>
+	<div class="navigationMenu">
+		<div>
+			<a href="/films"><strong> FILM </strong></a>
+		</div>
+		<div>
+			<a><strong> PROGRAMMAZIONE </strong></a>
+		</div>
+		<div>
+			<strong>CHI SIAMO</strong></a>
+		</div>
+		<div>
+			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>
+					LOGIN </strong></a> <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a>
+		</div>
+	</div>
+	</div>
 </header>
- <body>
-  <h1> Aggiungi Film</h1>
-<form th:action="@{/film}" method="post" th:object="${film}">
-<span th:if="${#fields.hasGlobalErrors()}">
-<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
-</span>
-<div class="campo">titolo:<input type="text" th:field="*{titolo}" /></div>
-<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
-<div class="campo">descrizione:<input type="text" th:field="*{descrizione}" /></div>
-<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
-<div class="campo">genere:<input type="text" th:field="*{genere}" /></div>
-<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
-<div class="campo">regista<input type="text" th:field="*{regista}"/></div>
-<span th:if="${#fields.hasErrors('regista')}" th:errors="*{regista}"></span>
-<div><button type="submit">Conferma</button></div>
-</form>
+<body>
+	<h1>Aggiungi Film</h1>
+	<form th:action="@{/film}" method="post" th:object="${film}">
+		<span th:if="${#fields.hasGlobalErrors()}">
+			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore
+				globale</p>
+		</span>
+		<div class="campo">
+			titolo:<input type="text" th:field="*{titolo}" />
+		</div>
+		<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+		<div class="campo">
+			descrizione:<input type="text" th:field="*{descrizione}" />
+		</div>
+		<span th:if="${#fields.hasErrors('descrizione')}"
+			th:errors="*{descrizione}"></span>
+		<div class="campo">
+			genere:<input type="text" th:field="*{genere}" />
+		</div>
+		<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
+		<div class="campo">
+			regista<input type="text" th:field="*{regista}" />
+		</div>
+		<span th:if="${#fields.hasErrors('regista')}" th:errors="*{regista}"></span>
+		<div>
+			<button type="submit">Conferma</button>
+		</div>
+	</form>
 </body>
 <footer>
-  <div id="footerFlex">
-  <text><strong>Cinema Siw</strong></text>
-  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
-  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
-  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
-</div>
+	<div id="footerFlex">
+		<text>
+		<strong>Cinema Siw</strong></text>
+		<text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+		<a href="tel:+39 3210456789">Tel. +39 3210456789</a> <a
+			href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+	</div>
 </footer>
 </html>

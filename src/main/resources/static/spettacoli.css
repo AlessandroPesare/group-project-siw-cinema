@@ -65,7 +65,8 @@ footer{
   display:flex;
   height:150px;
   background-color: SteelBlue;
- margin-top:200px;
+   margin-top: 400px;
+ 
 
   
 }
@@ -77,10 +78,8 @@ footer{
   flex-direction: column;
   justify-content: center;
   margin-left: 40vw;
- 
 
   
 }
   
-
 

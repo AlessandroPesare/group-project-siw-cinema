@@ -1,9 +1,13 @@
 package it.uniroma3.siw.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,14 @@ public class User {
 	private String nome;
 	
 	private String cognome;
+	
+	@OneToMany
+	private List<Prenotazione> prenotazioni;
+
+	
+	public User() {
+		this.prenotazioni = new ArrayList<Prenotazione>();
+	}
 	
 	public Long getId() {
 		return id;
@@ -40,5 +52,13 @@ public class User {
 	
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	}
+
+	public List<Prenotazione> getPrenotazioni() {
+		return prenotazioni;
+	}
+
+	public void setPrenotazioni(List<Prenotazione> prenotazioni) {
+		this.prenotazioni = prenotazioni;
 	}
 }
