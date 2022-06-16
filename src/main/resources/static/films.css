@@ -7,8 +7,14 @@ header h1{
   padding-top: 5vh;
   padding-bottom: 5vh;
   margin-bottom: 0;
+    margin-top:0;
   background-color: lightSkyBlue
   
+}
+
+header h1 a{
+	color: black;
+	text-decoration: none;
 }
 
 .navigationMenu a{
@@ -36,7 +42,7 @@ header h1{
 #flexBody{
   display: flex;
   flex-direction: column;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   
   
 }
@@ -47,7 +53,7 @@ header h1{
 
 div#flexBody h1{
   margin-left: 5%;
-  margin-bottom: 2%;
+  
 
 }
 
@@ -62,6 +68,7 @@ div#flexBody h1{
   margin-left: 7%;
   margin-bottom:10%;
   width: 20%;
+  margin-right: 7%;
 }
 
 div.Item:hover{
@@ -136,7 +143,8 @@ footer{
   display:flex;
   height:150px;
   background-color: SteelBlue;
- margin:-10px;
+
+  margin-top: 200px;
 
   
 }

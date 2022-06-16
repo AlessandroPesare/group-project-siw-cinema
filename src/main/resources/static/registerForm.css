@@ -7,8 +7,14 @@ header h1{
   padding-top: 5vh;
   padding-bottom: 5vh;
   margin-bottom: 0;
+    margin-top:0;
   background-color: lightSkyBlue
   
+}
+
+header h1 a{
+	color: black;
+	text-decoration: none;
 }
 
 .navigationMenu a{
@@ -34,7 +40,9 @@ header h1{
 
 body{
  text-align:center;
+ margin: 0;
 }
+
 h1{
   margin-top:5%;
 }
@@ -105,7 +113,7 @@ footer{
   display:flex;
   height:150px;
   background-color: SteelBlue;
- margin:10px;
+  margin-top: 200px;
 
   
 }
