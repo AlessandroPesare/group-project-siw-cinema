@@ -1,6 +1,11 @@
-html{
+html {
   background-color: AliceBlue;
 }
+
+body {
+	margin: 0px;
+}
+
 @keyframes headerAnimation{
   0% {background-image: url("cinema1.jpeg");}
   20% {background-image: url("cinema2.jpeg");}
@@ -10,23 +15,25 @@ html{
   100% {background-image: url("cinema6.jpeg") ;}
  }
 
-header{
+header {
   animation: headerAnimation 60s infinite ease-in backwards;
   height: 100vh;
   width: 100vw;
   margin: -10px;
 
 }
+
 header h1 a{
 	color: black;
 	text-decoration: none;
 }
 
-h1{
+h1 {
   text-align: center;
   padding-top: 5vh;
   padding-bottom: 5vh;
   margin-bottom: 0;
+  margin-top: 0;
   background-color: lightSkyBlue
   
 }
@@ -41,7 +48,7 @@ h1{
   color: lightSkyBlue;
 }
 
-.navigationMenu{
+.navigationMenu {
   display: flex;
   flex-grow: 1;
   justify-content: space-evenly;
@@ -52,8 +59,7 @@ h1{
   background-color: steelBlue;
 }
 
-
-form{
+form {
   text-align: center;
   margin-top: 5%;
    margin-bottom: 6%;
@@ -65,7 +71,7 @@ form div{
 
 input{
   width: 350px;
-    text-align: center;
+   text-align: center;
 }
 
 button{
@@ -79,18 +85,16 @@ button:hover{
   background-color: lightSkyBlue;
 }
 
-#flexForm{
+#flexForm {	/* dov'è usato? */
   display:flex;
   align-items: center;
   justify-content: center;
   margin-left: 9%;
 }
 
-#tutti{
+#tutti {
   margin-top: -11px;
 }
-
-
 
 footer a:link{
   color:black;
@@ -107,19 +111,15 @@ footer{
   background-color: SteelBlue;
 
   margin-top: 200px;
-
-  
 }
 
-#footerFlex{
+#footerFlex {
   display:flex;
-   color: black;
+  color: black;
   text-align: center;
   flex-direction: column;
   justify-content: center;
   margin-left: 40vw;
-
-  
 }
   
 

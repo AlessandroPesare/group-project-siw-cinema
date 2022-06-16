@@ -45,7 +45,7 @@ public class PrenotazioneController {
 		return "prenotazioneForm.html";
 	}
 	
-	@PostMapping("/deletePrenotazione/{id}")
+	@PostMapping("/prenotazione/delete/{id}")
 	public String deletePrenotazione(@PathVariable("id") Long id, Model model) {
 		Prenotazione prenotazione = ps.findById(id);
 		ps.deletePrenotazione(prenotazione);
