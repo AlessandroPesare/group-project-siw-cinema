@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Cinema Siw</title>
+<link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
+</head>
+<body>
+	<section>
+		<div>
+			<h1 class="titolo"
+				th:text="'Elenco delle tue prenotazioni">
+				Elenco delle prenotazioni</h1>
+		</div>
+		<br>
+		<table class="table">
+			<thead class="titoletto">
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Descrizione</th>
+					<th scope="col">Operazione</th>
+				</tr>
+			</thead>
+
+			<tbody class="titoletto">
+				<tr th:each="buffet: ${buffets}">
+					<td th:text="${buffet.nome}"></td>
+					<td th:text="${buffet.descrizione}"></td>
+					<td><a class="btn btn-danger"
+						th:href="@{/administration/buffets/del/{id}(id=${buffet.id})}">Delete</a>
+						<a class="btn btn-warning"
+						th:href="@{/administration/piatti/new/{buffet_id}(buffet_id=${buffet.id})}">Add
+							Piatto</a> <a class="btn btn-info"
+						th:href="@{/administration/piatti/buffet/{buffet_id}(buffet_id=${buffet.id})}">Guarda
+							i Piatti</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<div class="bottone">
+				<a class="btn btn-info btn-sm twtr" href="/administration/chefs"
+					target="_b">Back</a>
+			</div>
+		</div>
+	</section>
+	<div th:replace="fragments/layout.html :: jsFiles"></div>
+</body>
+</html>
