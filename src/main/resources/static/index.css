@@ -17,6 +17,10 @@ header{
   margin: -10px;
 
 }
+header h1 a{
+	color: black;
+	text-decoration: none;
+}
 
 h1{
   text-align: center;
@@ -77,7 +81,8 @@ footer{
   display:flex;
   height:150px;
   background-color: SteelBlue;
- margin:-10px;
+
+  margin-top: 200px;
 
   
 }
