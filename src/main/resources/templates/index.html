@@ -1,39 +1,44 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
- <meta charset="utf-8">
- <title>Cinema Siw</title>
-  <link rel="stylesheet" href="/index.css" ></link>
- </head>
+<meta charset="utf-8">
+<title>Cinema Siw</title>
+<link rel="stylesheet" href="/index.css"></link>
+</head>
 <header>
-    <h1> <a  href="/">CINEMA SIW</a> </h1>
-  <div class="navigationMenu">
-    <div><a  href="/films"><strong> FILM </strong></a></div>
-    <div><a href="/spettacoli"><strong> PROGRAMMAZIONE </strong></a></div>
-    <div><strong>CHI SIAMO</strong> </div>
-    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
-  <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
-  </div>
- 
-  
-</div>
+	<h1>CINEMA SIW</h1>
+	<div class="navigationMenu">
+		<div>
+			<a href="/films"><strong> FILM </strong></a>
+		</div>
+		<div>
+			<a href="/spettacoli"><strong> PROGRAMMAZIONE </strong></a>
+		</div>
+		<div>
+			<strong>CHI SIAMO</strong>
+		</div>
+		<div>
+			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>
+					LOGIN </strong></a> <a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a>
+		</div>
+	</div>
 </header>
 <body>
-  <form>
-    <div>Che film vuoi vedere?</div>
-    <input placeholder="Inserisci il nome di un film" ></input>
-    <div>
-    <button>Cerca</button>
-    <button>Tutti i film </button>
-  </div>
-  </form>
+	<form>
+		<div>Che film vuoi vedere?</div>
+		<input placeholder="Inserisci il nome di un film" required></input>
+		<div>
+			<a><button>Cerca</button></a>
+		</div>
+	</form>
+	<a th:href="@{/films}"><button>Tutti i film</button></a>
 </body>
 <footer>
-  <div id="footerFlex">
-  <text><strong>Cinema Siw</strong></text>
-  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
-  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
-  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
-</div>
+	<div id="footerFlex">
+		<text> <strong>Cinema Siw</strong></text>
+		<text>Via della Vasca Navale, 79 - 00146 - Roma </text>
+		<a href="tel:+39 3210456789">Tel. +39 3210456789</a> <a
+			href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
+	</div>
 </footer>
 </html>
