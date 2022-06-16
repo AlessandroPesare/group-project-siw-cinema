@@ -16,6 +16,10 @@ header h1 a{
 	text-decoration: none;
 }
 
+header h1 a:hover{
+	color: black;
+}
+
 .navigationMenu a{
   color: white;
   text-decoration: none;

@@ -9,7 +9,7 @@
   <h1> <a  href="/">CINEMA SIW</a> </h1>
   <div class="navigationMenu">
      <div><a  href="/films"><strong> FILM </strong></a></div>
-    <div><a><strong> PROGRAMMAZIONE </strong></a></div>
+    <div><a href="/spettacoli"><strong> PROGRAMMAZIONE </strong></a></div>
     <div><strong>CHI SIAMO</strong></a> </div>
     <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
   	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>

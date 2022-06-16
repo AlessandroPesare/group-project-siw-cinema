@@ -24,6 +24,7 @@
 	</div>
 </header>
 <body>
+  <div id="flexForm">
 	<form>
 		<div>Che film vuoi vedere?</div>
 		<input placeholder="Inserisci il nome di un film" required></input>
@@ -31,7 +32,8 @@
 			<a><button>Cerca</button></a>
 		</div>
 	</form>
-	<a th:href="@{/films}"><button>Tutti i film</button></a>
+   <button formaction="/films" formmethod="get" id="tutti">Tutti i film</button>
+  </div>
 </body>
 <footer>
 	<div id="footerFlex">
