@@ -25,4 +25,8 @@ public class SpettacoloService {
 	public List<Spettacolo> findAllSpettacoli() {
 		return (List<Spettacolo>) repo.findAll();
 	}
+
+	public Spettacolo findById(Long spettacoloId) {
+		return repo.findById(spettacoloId).orElse(null);
+	}
 }

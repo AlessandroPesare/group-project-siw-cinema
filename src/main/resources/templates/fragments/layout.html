@@ -23,14 +23,14 @@
 			<a href="/film/all"><strong> FILM </strong></a>
 		</div>
 		<div>
-			<a href="/spettacoli"><strong> PROGRAMMAZIONE </strong></a>
+			<a href="/spettacolo/all"><strong> PROGRAMMAZIONE </strong></a>
 		</div>
 		<div>
 			<a href=""><strong>CHI SIAMO</strong></a>
 		</div>
 		<div>
 			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>LOGIN </strong></a>
-			<a th:if="${userLoggato}" th:href="@{/prenota}"><strong>PRENOTAZIONI</strong></a>
+			<a th:if="${userLoggato}" th:href="@{/user/prenota}"><strong>PRENOTAZIONI</strong></a>
 		</div>
 	</div>
 </header>

@@ -50,6 +50,7 @@ public class FilmController {
 				model.addAttribute("isFilmInesistente", true);				
 			}
 		}
+		credentialsService.adattaAdUtente(model);
 		return "index.html";
 	}
 	
@@ -57,6 +58,7 @@ public class FilmController {
 	public String getFilm(@PathVariable("id") Long id, Model model){
 		Film film = filmService.findById(id);
 		model.addAttribute("film", film);
+		credentialsService.adattaAdUtente(model);
 		return "film.html";	
 	}
 

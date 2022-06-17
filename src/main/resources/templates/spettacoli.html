@@ -11,9 +11,10 @@
 	<header th:replace="fragments/layout.html :: navbar"></header>
 	<h2>Tutti gli spettacoli:</h2>
 	<ul>
-		<li th:each="sp : ${allSpettacoli}"
-			th:text="${sp.film.titolo} + ': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} 
-		+ ' con ' + ${sp.numeroPosti} + ' posti disponibili' ">
+		<li th:each="sp : ${allSpettacoli}">
+			<span th:text="${sp.film.titolo} + ': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} + ' con ' + ${sp.numeroPosti} + ' posti disponibili' "></span>
+			<a th:if="${userLoggato}" th:href="@{'/user/prenotazione/add/' + ${sp.id}}">Prenota</a>
+		</li>
 	</ul>
 
 	<footer th:replace="fragments/layout.html :: footer"></footer>

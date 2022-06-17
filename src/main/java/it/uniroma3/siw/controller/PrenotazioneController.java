@@ -22,40 +22,56 @@ import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.PrenotazioneService;
 import it.uniroma3.siw.service.SpettacoloService;
+import it.uniroma3.siw.service.UserService;
 
 @Controller
 public class PrenotazioneController {
 
 	@Autowired
-	PrenotazioneService ps;
+	private PrenotazioneService prenService;
 	@Autowired 
-	SpettacoloService ss;
+	private SpettacoloService spettService;
 	@Autowired
-	CredentialsService cs;
+	private CredentialsService credService;
+	@Autowired
+	private UserService userService;
 	
-	@PostMapping("/prenotazione")
+	@PostMapping("/prenotazione")	// non usiamo?
 	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
 		if(!br.hasErrors()) {
-			ps.addPrenotazione(prenotazione);
-			ss.aggiornaPostiDisponibili(prenotazione.getSpettacolo());
+			prenService.addPrenotazione(prenotazione);
+			spettService.aggiornaPostiDisponibili(prenotazione.getSpettacolo());
 			model.addAttribute("prenotazione", prenotazione);
 			return "prenotazione.html";
 		} else
 		return "index.html";
 	}
 	
-	@GetMapping("/prenota")
+	@GetMapping("/user/prenotazione/add/{id}")
+	public String aggiungiPrenotazione(@PathVariable("id") Long spettacoloId) {
+		Prenotazione prenotazione = new Prenotazione();	
+		prenotazione.setSpettacolo(spettService.findById(spettacoloId));
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = credService.getCredentials(userDetails.getUsername());
+    	User user = credentials.getUser();
+    	user.addPrenotazione(prenotazione);
+    	userService.saveUser(user);	// aggiorna l'utente con la nuova prenotazione
+		return "redirect:/spettacolo/all";
+	}
+	
+	@GetMapping("/user/prenota")
 	public String getPrenotazioni(Model model){
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	Credentials credentials = cs.getCredentials(userDetails.getUsername());
+    	Credentials credentials = credService.getCredentials(userDetails.getUsername());
     	User user = credentials.getUser();
 		model.addAttribute("user",user);
+		credService.adattaAdUtente(model);
 		return "prenotazioniPerUtente.html";
 	}
 	
 	@GetMapping("/prenotazione/{id}")
 	public String getPrenotazione(@PathVariable("id") Long id, Model model) {
-		List<Spettacolo> spettacoli = ss.findAllSpettacoliPerFilm(id);
+		List<Spettacolo> spettacoli = spettService.findAllSpettacoliPerFilm(id);
 		model.addAttribute("spettacoli", spettacoli);
 		model.addAttribute("prenotazione", new Prenotazione());
 		return "prenotazioneForm.html";
@@ -63,8 +79,8 @@ public class PrenotazioneController {
 	
 	@PostMapping("/prenotazione/delete/{id}")
 	public String deletePrenotazione(@PathVariable("id") Long id, Model model) {
-		Prenotazione prenotazione = ps.findById(id);
-		ps.deletePrenotazione(prenotazione);
+		Prenotazione prenotazione = prenService.findById(id);
+		prenService.deletePrenotazione(prenotazione);
 		return "index.html";
 	}
 }
