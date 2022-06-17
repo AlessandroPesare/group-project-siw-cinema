@@ -27,7 +27,7 @@
 				</form>
 			</div>
 			<div class="Azione" th:if="${userLoggato}">
-				<form th:action="@{'/prenotazione'+'/'+ ${film.id}}" method="post">
+				<form th:action="@{'/user/prenotazione/film'+'/'+ ${film.id}}" method="get">
 					<button type="submit">Prenota</button>
 				</form>
 			</div>

@@ -20,12 +20,14 @@ import it.uniroma3.siw.model.Prenotazione;
 import it.uniroma3.siw.model.Spettacolo;
 import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.CredentialsService;
+import it.uniroma3.siw.service.FilmService;
 import it.uniroma3.siw.service.PrenotazioneService;
 import it.uniroma3.siw.service.SpettacoloService;
 
 @Controller
 public class PrenotazioneController {
-
+	@Autowired
+	private FilmService filmService;
 	@Autowired
 	private PrenotazioneService prenService;
 	@Autowired 
@@ -74,7 +76,15 @@ public class PrenotazioneController {
 		return "prenotazioniPerUtente.html";
 	}
 	
-	@GetMapping("/prenotazione/{id}")		// non usiamo?
+	@GetMapping("/user/prenotazione/film/{id}")
+	public String getPrenotazionePerFilm(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("allSpettacoli", spettService.findAllSpettacoliPerFilm(id));
+		model.addAttribute("film", filmService.findById(id));
+		credService.adattaAdUtente(model);
+		return "spettacoli.html";
+	}
+	
+	@PostMapping("/user/prenotazione/{id}")		// non usiamo?
 	public String getPrenotazione(@PathVariable("id") Long id, Model model) {
 		List<Spettacolo> spettacoli = spettService.findAllSpettacoliPerFilm(id);
 		model.addAttribute("spettacoli", spettacoli);

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
-	<h2>Tutti gli spettacoli:</h2>
+	<h2>Tutti gli spettacoli <span th:if="${film}" th:text="' disponibili per ' + ${film.titolo}"></span>:</h2>
 	<div th:if="${prenotazioneRiuscita}" th:text="#{prenotazione.riuscita}"></div>
 	<div th:if="${prenotazioneFallita}" th:text="#{prenotazione.fallita}"></div>
 	<ul>
