@@ -3,6 +3,7 @@ package it.uniroma3.siw.model;
 import javax.persistence.*;
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames= {"spettacolo_id", "utente_id"}))
 public class Prenotazione {
 
 	@Id
@@ -11,6 +12,9 @@ public class Prenotazione {
 	
 	@ManyToOne
 	Spettacolo spettacolo;
+	
+	@ManyToOne
+	User utente;
 
 	public Long getId() {
 		return id;
@@ -27,4 +31,13 @@ public class Prenotazione {
 	public void setSpettacolo(Spettacolo spettacolo) {
 		this.spettacolo = spettacolo;
 	}
+
+	public User getUtente() {
+		return utente;
+	}
+
+	public void setUtente(User utente) {
+		this.utente = utente;
+	}
+
 }

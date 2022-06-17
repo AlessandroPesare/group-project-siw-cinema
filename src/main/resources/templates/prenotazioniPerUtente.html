@@ -21,6 +21,7 @@
 					<th scope="col">Nome film</th>
 					<th scope="col">Data e ora spettacolo</th>
 					<th scope="col">Sala</th>
+					<th scope="col"></th>
 				</tr>
 			</thead>
 
@@ -29,6 +30,7 @@
 					<td th:text="${prenotazione.spettacolo.film.titolo}"></td>
 					<td th:text="${prenotazione.spettacolo.dataConOra}"></td>
 					<td th:text="${prenotazione.spettacolo.sala.nome}"></td>
+					<td><a href="">cancella</a></td>
 				</tr>
 			</tbody>
 		</table>

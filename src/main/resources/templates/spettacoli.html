@@ -10,6 +10,8 @@
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
 	<h2>Tutti gli spettacoli:</h2>
+	<div th:if="${prenotazioneRiuscita}" th:text="#{prenotazione.riuscita}"></div>
+	<div th:if="${prenotazioneFallita}" th:text="#{prenotazione.fallita}"></div>
 	<ul>
 		<li th:each="sp : ${allSpettacoli}">
 			<span th:text="${sp.film.titolo} + ': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} + ' con ' + ${sp.numeroPosti} + ' posti disponibili' "></span>

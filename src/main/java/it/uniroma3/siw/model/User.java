@@ -24,7 +24,7 @@ public class User {
 	
 	private String cognome;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "utente", fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE, CascadeType.MERGE})
 	private List<Prenotazione> prenotazioni;
 
 	

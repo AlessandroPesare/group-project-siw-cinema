@@ -19,10 +19,12 @@ public class PrenotazioneService {
 		return pr.findById(id).get();
 	}
 	
-	
 	@Transactional
-	public void addPrenotazione(Prenotazione prenotazione) {
+	public boolean savePrenotazione(Prenotazione prenotazione) {
+		if(pr.findBySpettacoloIdAndUtenteId(prenotazione.getSpettacolo().getId(), prenotazione.getUtente().getId()) != null)
+			return false;
 		pr.save(prenotazione);
+		return true;
 	}
 	
 	@Transactional

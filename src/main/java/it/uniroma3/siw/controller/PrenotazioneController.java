@@ -22,7 +22,6 @@ import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.PrenotazioneService;
 import it.uniroma3.siw.service.SpettacoloService;
-import it.uniroma3.siw.service.UserService;
 
 @Controller
 public class PrenotazioneController {
@@ -33,30 +32,36 @@ public class PrenotazioneController {
 	private SpettacoloService spettService;
 	@Autowired
 	private CredentialsService credService;
-	@Autowired
-	private UserService userService;
 	
-	@PostMapping("/prenotazione")	// non usiamo?
-	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
-		if(!br.hasErrors()) {
-			prenService.addPrenotazione(prenotazione);
-			spettService.aggiornaPostiDisponibili(prenotazione.getSpettacolo());
-			model.addAttribute("prenotazione", prenotazione);
-			return "prenotazione.html";
-		} else
-		return "index.html";
-	}
+//	@PostMapping("/prenotazione")	// non usiamo?
+//	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
+//		if(!br.hasErrors()) {
+//			prenService.savePrenotazione(prenotazione);
+//			spettService.aggiornaPostiDisponibili(prenotazione.getSpettacolo());
+//			model.addAttribute("prenotazione", prenotazione);
+//			return "prenotazione.html";
+//		} else
+//		return "index.html";
+//	}
 	
 	@GetMapping("/user/prenotazione/add/{id}")
-	public String aggiungiPrenotazione(@PathVariable("id") Long spettacoloId) {
+	public String aggiungiPrenotazione(@PathVariable("id") Long spettacoloId, Model model) {
 		Prenotazione prenotazione = new Prenotazione();	
 		prenotazione.setSpettacolo(spettService.findById(spettacoloId));
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = credService.getCredentials(userDetails.getUsername());
     	User user = credentials.getUser();
-    	user.addPrenotazione(prenotazione);
-    	userService.saveUser(user);	// aggiorna l'utente con la nuova prenotazione
-		return "redirect:/spettacolo/all";
+    	prenotazione.setUtente(user);
+//    	user.addPrenotazione(prenotazione);	non serve
+    	if(prenService.savePrenotazione(prenotazione)) {
+    		model.addAttribute("prenotazioneRiuscita", true);
+    	}
+    	else {
+    		model.addAttribute("prenotazioneFallita", true);
+    	}
+    	model.addAttribute("allSpettacoli", spettService.findAllSpettacoli());
+		credService.adattaAdUtente(model);
+		return "spettacoli.html";	
 	}
 	
 	@GetMapping("/user/prenota")
