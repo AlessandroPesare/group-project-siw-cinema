@@ -31,4 +31,9 @@ public class PrenotazioneService {
 	public void deletePrenotazione(Prenotazione prenotazione) {
 		pr.delete(prenotazione);
 	}
+	
+	@Transactional
+	public void deletePrenotazione(Long id) {
+		pr.deleteById(id);
+	}
 }

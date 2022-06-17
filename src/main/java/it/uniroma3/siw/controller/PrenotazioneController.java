@@ -33,16 +33,16 @@ public class PrenotazioneController {
 	@Autowired
 	private CredentialsService credService;
 	
-//	@PostMapping("/prenotazione")	// non usiamo?
-//	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
-//		if(!br.hasErrors()) {
-//			prenService.savePrenotazione(prenotazione);
-//			spettService.aggiornaPostiDisponibili(prenotazione.getSpettacolo());
-//			model.addAttribute("prenotazione", prenotazione);
-//			return "prenotazione.html";
-//		} else
-//		return "index.html";
-//	}
+	@PostMapping("/prenotazione")	// non usiamo?
+	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
+		if(!br.hasErrors()) {
+			prenService.savePrenotazione(prenotazione);
+			spettService.aggiornaPostiDisponibili(prenotazione.getSpettacolo());
+			model.addAttribute("prenotazione", prenotazione);
+			return "prenotazione.html";
+		} else
+		return "index.html";
+	}
 	
 	@GetMapping("/user/prenotazione/add/{id}")
 	public String aggiungiPrenotazione(@PathVariable("id") Long spettacoloId, Model model) {
@@ -74,7 +74,7 @@ public class PrenotazioneController {
 		return "prenotazioniPerUtente.html";
 	}
 	
-	@GetMapping("/prenotazione/{id}")
+	@GetMapping("/prenotazione/{id}")		// non usiamo?
 	public String getPrenotazione(@PathVariable("id") Long id, Model model) {
 		List<Spettacolo> spettacoli = spettService.findAllSpettacoliPerFilm(id);
 		model.addAttribute("spettacoli", spettacoli);
@@ -82,10 +82,9 @@ public class PrenotazioneController {
 		return "prenotazioneForm.html";
 	}
 	
-	@PostMapping("/prenotazione/delete/{id}")
+	@GetMapping("/user/prenotazione/delete/{id}")
 	public String deletePrenotazione(@PathVariable("id") Long id, Model model) {
-		Prenotazione prenotazione = prenService.findById(id);
-		prenService.deletePrenotazione(prenotazione);
-		return "index.html";
+		prenService.deletePrenotazione(id);
+		return "redirect:/user/prenota";
 	}
 }

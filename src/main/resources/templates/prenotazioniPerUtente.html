@@ -30,7 +30,7 @@
 					<td th:text="${prenotazione.spettacolo.film.titolo}"></td>
 					<td th:text="${prenotazione.spettacolo.dataConOra}"></td>
 					<td th:text="${prenotazione.spettacolo.sala.nome}"></td>
-					<td><a href="">cancella</a></td>
+					<td><a th:href="@{'/user/prenotazione/delete/' + ${prenotazione.id}}">cancella</a></td>
 				</tr>
 			</tbody>
 		</table>
