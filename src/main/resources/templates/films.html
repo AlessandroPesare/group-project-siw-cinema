@@ -22,7 +22,7 @@
 				</a>
 			</div>
 			<div class="Azione" th:if="${amministratoreLoggato}">
-				<form th:action="@{'/toDeleteFilm' + '/' +${film.id}}" method="post">
+				<form th:action="@{'/film/deleteForm' + '/' +${film.id}}" method="post">
 					<button type="submit">Elimina</button>
 				</form>
 			</div>

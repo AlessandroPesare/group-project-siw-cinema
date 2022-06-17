@@ -13,7 +13,7 @@
   
 	<div class="item" th:text="'Vuoi davvero eliminare il film ' + ${film.titolo} + '? Tutti i dati andranno persi'">..</div>
 	
-	<div class="item"><button type="submit" th:formaction="@{@{'/deleteFilm' + '/' +${film.id}}}" formmethod="get" th:text = "CONFERMA">CONFERMA</button>
+	<div class="item"><button type="submit" th:form action="@{@{'film/delete' + '/' +${film.id}}}" formmethod="get" th:text = "CONFERMA">CONFERMA</button>
 	</div>
 	<footer th:replace="fragments/layout.html :: footer"></footer>
   </body>
