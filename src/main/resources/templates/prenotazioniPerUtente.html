@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/layout.html :: bootstrap">
+<head>
 <meta charset="utf-8">
 <title>Cinema Siw</title>
-<link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
+ <link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
 <link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
 </head>
@@ -34,6 +35,6 @@
 	</section>
 	
 	<footer th:replace="fragments/layout.html :: footer"></footer>
-	<div th:replace="fragments/layout.html :: jsFiles"></div>
+ <div th:replace="fragments/layout.html :: jsFiles"></div>
 </body>
 </html>

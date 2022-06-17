@@ -1,45 +1,4 @@
-html{
-  background-color: AliceBlue;
-}
 
-body {
-	margin: 0;
-}
-
-header h1{
-  text-align: center;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  margin-bottom: 0;
-    margin-top:0;
-  background-color: lightSkyBlue
-  
-}
-
-header h1 a{
-	color: black;
-	text-decoration: none;
-}
-.navigationMenu a{
-  color: white;
-  text-decoration: none;
-  font-size: 110%;
-}
-
-.navigationMenu a:hover{
-  color: lightSkyBlue;
-}
-
-.navigationMenu{
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-evenly;
-  align-items:center;
-  padding-bottom: 2vh;
-  padding-top: 2vh;
-
-  background-color: steelBlue;
-}
 
 h2{
   margin-left: 5%;

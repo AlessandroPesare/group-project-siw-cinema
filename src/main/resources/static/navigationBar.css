@@ -1,3 +1,13 @@
+
+html{
+  background-color: AliceBlue;
+}
+
+body {
+	margin: 0px;
+}
+
+
 @keyframes headerAnimation{
   0% {background-image: url("cinema1.jpeg");}
   20% {background-image: url("cinema2.jpeg");}
@@ -11,6 +21,7 @@ header {
   animation: headerAnimation 60s infinite ease-in backwards;
   height: 100vh;
   width: 100%;
+  text-align:center;
 
 }
 

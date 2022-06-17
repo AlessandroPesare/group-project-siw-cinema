@@ -3,13 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<title>Cinema Siw</title>
-	<link rel="stylesheet" href="/index.css"></link>
+	 <link rel="stylesheet" href="/index.css"></link>
 	<link rel="stylesheet" href="/navigationBar.css"></link>
 	<link rel="stylesheet" href="/footer.css"></link>
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
 	
+	<div id="flex">
 	<form th:action="@{/film/nome}" method="get">
 		<div>Che film vuoi vedere?</div>
 		<input name="nome" placeholder="Inserisci il nome di un film" required></input>
@@ -19,8 +20,11 @@
 		<div th:if="${isFilmInesistente}" th:text="#{film.inesistente}"></div>
 	</form>
 	
-	<a th:href="@{/films}"><button>Tutti i film</button></a>
-	
+   <button id="tutti" formaction="@{/films}" formmethod="get">Tutti i film</button>
+ 
+  
+  </div>
+  
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
 </html>

@@ -4,30 +4,16 @@
 <meta charset="utf-8">
  <title>Cinema Siw</title>
   <link rel="stylesheet" href="/registrationSuccessfull.css" ></link>
+  <link rel="stylesheet" href="/noImageBar.css"></link>
+<link rel="stylesheet" href="/footer.css"></link>
  </head>
-<header>
-  <h1> <a  href="/">CINEMA SIW</a> </h1>
-  <div class="navigationMenu">
-     <div><a  href="/films"><strong> FILM </strong></a></div>
-    <div><a href="/spettacoli"><strong> PROGRAMMAZIONE </strong></a></div>
-    <div><strong>CHI SIAMO</strong></a> </div>
-    <div><a  th:unless="${userLoggato}"th:href="@{/login}"><strong> LOGIN </strong></a>
-  	<a th:if="${userLoggato}" th:href="@{/prenota}">PRENOTA</a></div>
- </div>
-</div>
-</header>
 <body>
+<header th:replace="fragments/layout.html :: navbar"></header>
   <div id="message">
   <h1>Congratulazioni!</h1>
   <text>Registrazione completata con successo.</text>
   </div>
+  <footer th:replace="fragments/layout.html :: footer"></footer>
   </body>
-<footer>
-  <div id="footerFlex">
-  <text><strong>Cinema Siw</strong></text>
-  <text>Via della Vasca Navale, 79 - 00146 - Roma </text>
-  <a  href="tel:+39 3210456789">Tel. +39 3210456789</a>
-  <a href="mailto:info@michelincatering.it"> info@cinemasiw.it</a>
-</div>
-</footer>
+
 </html>
