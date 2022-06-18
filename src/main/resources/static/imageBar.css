@@ -1,0 +1,15 @@
+@keyframes headerAnimation{
+  0% {background-image: url("cinema1.jpeg");}
+  20% {background-image: url("cinema2.jpeg");}
+  40% {background-image: url("cinema3.jpeg") }
+  60% {background-image: url("cinema4.jpeg") ;}
+  80% {background-image: url("cinema5.jpeg") ;}
+  100% {background-image: url("cinema6.jpeg") ;}
+ }
+
+#image-div {
+  animation: headerAnimation 60s infinite ease-in backwards;
+  height: 90vh;
+  text-align:center;
+  margin-top: 17.2vh;
+}

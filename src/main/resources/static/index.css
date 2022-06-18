@@ -1,38 +1,41 @@
-form {
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 6%;
+#homepage-core {
+	padding: 5vh;
 }
 
-form div{
-  font-size: 150%;
+.homepage-paragraph {
+	padding: 0 5vh;
+	font-style: italic;
+}
+
+#flex-block {	
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  
+  margin-top: 5vh;
+}
+
+form {
+  text-align: center;
 }
 
 input{
-  width: 350px;
   text-align: center;
 }
 
-button{
-  background-color: azure;
-  border-radius: 40%;
-  font-size: 70%;
-  border-color: steelBlue;
+.our-button {
+  background-color: var(--primary-color);
+  border-radius: 20%;
 }
 
-button:hover{
+.our-button:hover{
   background-color: lightSkyBlue;
 }
 
-#flex {	
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 9%;
-}
 
-#tutti{
-  margin-top: -13px;
+#search-image {
+	width: 20px;
+	height: 20px;
 }
 
 

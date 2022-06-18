@@ -1,3 +1,12 @@
+footer{
+  display:flex;
+  height: 20vh;
+  background: linear-gradient(AliceBlue, SteelBlue);
+  justify-content: center;
+
+  margin-top: 25vh;
+}
+
 footer a:link{
   color:black;
   text-decoration: none;
@@ -7,18 +16,10 @@ footer a:hover{
   color: LightSkyBlue;
 }
 
-footer{
-  display:flex;
-  height:150px;
-  background-color: SteelBlue;
-  justify-content: center;
-
-  margin-top: 200px;
-}
-
 #footerFlex {
-  display:flex;
   color: black;
+  
+  display:flex;
   text-align: center;
   justify-content: center;
   flex-direction: column;
