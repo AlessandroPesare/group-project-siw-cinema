@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<!-- da qui... -->
 <meta charset="utf-8">
-<title>Cinema Siw</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Amiri&family=Mrs+Sheppards&family=Sonsie+One&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/noImageBar.css"></link>
+<link rel="stylesheet" href="/footer.css"></link>
+<!-- a qui, copiare in ogni html -->
+<title th:text="'Cinema Siw: ' + ${film.titolo}"></title>
 <link rel="stylesheet" href="/film.css"></link>
 <link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
-	
-	<div id="flexBody">
-		<h1 th:text="${film.titolo}">titolo</h1>
-		<hr width="92%" color="steelBlue" size="5%"></hr>
-		<p th:text="${film.descrizione}">descrizione film brellissimo ecc
-			eccecc</p>
-		<div class="line">
-			<h4>GENERE:</h4>
-			<text th:text="${film.genere}">genere </text>
-		</div>
-		<div class="line">
-			<h4>REGISTA:</h4>
-			<text th:text="${film.regista}">nome del regista </text>
+	<div class="space-container">
+		<div id="flexBody">
+			<div class="title bottom-border center" th:text="${film.titolo}">titolo</div>
+			<p class="center" th:text="${film.descrizione}">descrizione film</p>
+			<div class="line">
+				<div class="subtitle">GENERE:</div>
+				<span th:text="${film.genere}">genere </span>
+			</div>
+			<div class="line">
+				<div class="subtitle">REGISTA:</div>
+				<span th:text="${film.regista}">nome del regista </span>
+			</div>
 		</div>
 	</div>
-	
+
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
 </html>

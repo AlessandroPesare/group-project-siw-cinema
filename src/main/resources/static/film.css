@@ -1,35 +1,19 @@
-
 #flexBody{
   display: flex;
-  flex-direction: column;
-  margin-bottom: 10%;
-  
-  
-}
-
-div#flexBody h1{
-  margin-left: 5%;
-  margin-bottom: 2%;
-  text-align: center;
+  flex-direction: column;  
 }
 
 p{
-  margin-left:5%;
   font-style: italic;
-  font-size: 17px;
-  text-align: center;
+  font-size: large;
+  padding: 0 20%;
 }
 
 .line{
   display:flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
   justify-content: center;
-  margin-left: 5%;
-}
-
-div.line{
-  margin-bottom: -10px;
 }
 
 

@@ -3,6 +3,7 @@
   --subtitle-style: 'Emblema One', cursive;
   --normal-style: 'Amiri', serif;
   --primary-color: steelBlue;
+  --secondary-color: lightSkyBlue;
   --background-color: AliceBlue;
 }
 
@@ -84,13 +85,20 @@ header > h1 > a:hover {
   color: lightSkyBlue;
 }
 
-.space-container { /* utile in futuro*/
-	margin-top: 18vh;
+.space-container { 
+	margin-top: 30vh;
+	padding: 0 5vh;
 }
 
 .title {
 	font-size: xx-large;
 	font-family: var(--title-style);
+	margin-bottom: 2vh;
+}
+
+.subtitle {
+	font-size: x-large;
+	font-weight: bold;
 	margin-bottom: 2vh;
 }
 
@@ -103,4 +111,14 @@ header > h1 > a:hover {
 .error {
 	color: red;
 	font-weight: bold;
+}
+
+.bottom-border {
+	padding-bottom: 3vh;
+	margin-bottom: 5vh;
+	border-bottom: medium var(--primary-color) solid;
+}
+
+.center {
+	text-align: center;
 }
