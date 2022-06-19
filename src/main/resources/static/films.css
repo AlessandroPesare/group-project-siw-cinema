@@ -17,12 +17,13 @@
   margin-left: 7%;
   margin-bottom:5%;
   width: 80%;
+  padding: 2%;
 }
 
 .item:hover{
-  background-color: var(--secondary-color);
-  box-shadow: 0 0 20px 30px var(--secondary-color);
-  border-radius: 10%;
+  background-color: azure;
+  box-shadow: 0 0 2px 3px azure;
+  border-radius: 0%;
   }
 
 .text{

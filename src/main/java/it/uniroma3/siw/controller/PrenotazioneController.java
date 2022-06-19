@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Credentials;
+import it.uniroma3.siw.model.Film;
 import it.uniroma3.siw.model.Prenotazione;
 import it.uniroma3.siw.model.Spettacolo;
 import it.uniroma3.siw.model.User;
@@ -79,7 +80,9 @@ public class PrenotazioneController {
 	@GetMapping("/user/prenotazione/film/{id}")
 	public String getPrenotazionePerFilm(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("allSpettacoli", spettService.findAllSpettacoliPerFilm(id));
-		model.addAttribute("film", filmService.findById(id));
+		Film film = filmService.findById(id);
+		film.getTitolo().toUpperCase();
+		model.addAttribute("film", film);
 		credService.adattaAdUtente(model);
 		return "spettacoli.html";
 	}

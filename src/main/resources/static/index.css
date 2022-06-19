@@ -23,16 +23,6 @@ input{
   text-align: center;
 }
 
-.our-button {
-  background-color: var(--primary-color);
-  border-radius: 20%;
-}
-
-.our-button:hover{
-  background-color: lightSkyBlue;
-}
-
-
 #search-image {
 	width: 20px;
 	height: 20px;

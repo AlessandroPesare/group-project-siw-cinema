@@ -122,3 +122,13 @@ header > h1 > a:hover {
 .center {
 	text-align: center;
 }
+
+.our-button {
+  background-color: var(--primary-color);
+  border-radius: 20%;
+}
+
+.our-button:hover{
+  background-color: lightSkyBlue;
+}
+	
