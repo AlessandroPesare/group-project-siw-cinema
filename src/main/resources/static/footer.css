@@ -1,6 +1,5 @@
 footer{
   display:flex;
-  height: 20vh;
   background: linear-gradient(AliceBlue, SteelBlue);
   justify-content: center;
 

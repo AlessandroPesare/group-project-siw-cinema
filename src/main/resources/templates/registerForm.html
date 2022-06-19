@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<!-- da qui... -->
 <meta charset="utf-8">
-<title>Cinema Siw</title>
-<link rel="stylesheet" href="/form.css"></link>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Amiri&family=Mrs+Sheppards&family=Sonsie+One&display=swap"
+	rel="stylesheet">
 <link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
+<!-- a qui, copiare in ogni html -->
+<title>Cinema Siw: Registrazione</title>
+<link rel="stylesheet" href="/form.css"></link>
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
-	<h1>Registrati</h1>
-	<form form th:action="@{/register}" method="POST">
-		<div class="campo">
-			username:<input type="text" placeholder="username" required
-				th:field="${credentials.username}" />
-		</div>
-		<span th:if="${#fields.hasErrors('credentials.username')}"
-			th:errors="*{credentials.username}"></span>
-		<div class="campo">
-			password:<input type="password" placeholder="password" required
-				th:field="${credentials.password}" />
-		</div>
-		<span th:if="${#fields.hasErrors('credentials.password')}"
-			th:errors="*{credentials.password}"></span>
-		<div class="campo">
-			nome:<input type="text" placeholder="nome" required
-				th:field="${user.nome}" />
-		</div>
-		<span th:if="${#fields.hasErrors('user.nome')}"
-			th:errors="*{user.nome}"></span>
-		<div class="campo">
-			cognome<input type="text" placeholder="cognome" required
-				th:field="${user.cognome}" />
-		</div>
-		<span th:if="${#fields.hasErrors('user.cognome')}"
-			th:errors="*{user.cognome}"></span>
-		<div>
-			<button type="submit">Registra</button>
-		</div>
-	</form>
-	
+
+	<div class="space-container">
+		<div class="title bottom-border">REGISTRATI</div>
+
+		<form class="rows" th:action="@{/register}" method="POST">
+				<div class="columns spaced-less">
+					<div>username:</div>
+					<div>password:</div>
+					<div>nome:</div>
+					<div>cognome:</div>
+				</div>
+				<div class="form-group columns spaced">
+					<div class="rows">
+						<input class="form-control slim-input" type="text" placeholder="username" required
+						th:field="${credentials.username}" />
+						<span class="error small" th:if="${#fields.hasErrors('credentials.username')}"
+						th:errors="*{credentials.username}"></span>
+					</div>
+					<div class="rows">
+						<input class="form-control slim-input" type="password" placeholder="password" required
+							th:field="${credentials.password}" />
+						<span class="error small" th:if="${#fields.hasErrors('credentials.password')}"
+						th:errors="*{credentials.password}"></span>
+					</div>
+					<div class="rows">
+						<input class="form-control slim-input" type="text" placeholder="nome" required
+							th:field="${user.nome}" />
+						<span class="error small" th:if="${#fields.hasErrors('user.nome')}"
+						th:errors="*{user.nome}"></span>
+					</div>
+					<div class="rows">
+						<input class="form-control slim-input" type="text" placeholder="cognome" required
+							th:field="${user.cognome}" />
+						<span class="error small" th:if="${#fields.hasErrors('user.cognome')}"
+						th:errors="*{user.cognome}"></span>
+					</div>
+					<div>
+					<button class="btn btn-primary our-button" type="submit">Registrati</button>
+					</div>
+				</div>				
+		</form>
+
+	</div>
+
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
 </html>

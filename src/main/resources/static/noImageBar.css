@@ -102,9 +102,20 @@ header > h1 > a:hover {
 	margin-bottom: 2vh;
 }
 
+.small {
+	font-size: small;
+}
+
 .rows {
 	display:flex;
 	justify-content: space-around;
+	gap: 5%;
+}
+
+.columns {
+	display:flex;
+	flex-direction: column; 
+	justify-content: space-between;
 	gap: 5%;
 }
 
@@ -125,7 +136,7 @@ header > h1 > a:hover {
 
 .our-button {
   background-color: var(--primary-color);
-  border-radius: 20%;
+  border-radius: 100px;
 }
 
 .our-button:hover{

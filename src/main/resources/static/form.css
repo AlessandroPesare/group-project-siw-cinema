@@ -16,3 +16,15 @@ form div{
   font-size:110%;
 }
 
+.spaced {
+	margin-bottom: 30px !important;
+}
+
+.spaced-less {
+	margin-bottom: 50px !important;
+}
+
+
+.slim-input {
+	height: 70%;
+}

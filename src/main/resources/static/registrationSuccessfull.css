@@ -1,18 +1,9 @@
-
-
 #message{
-  margin-top: 10%;
+  margin-top: 20%;
   align-items: center;
-  border: 2px solid steelBlue;
-  width: 40%;
-  margin-left:30%;
-  padding-bottom: 20px;
-}
-
-div#message text{
-
- font-size: 20px;
-}
+  border: 12px double steelBlue;;
+  padding:5%;
+}	
 
 
 
