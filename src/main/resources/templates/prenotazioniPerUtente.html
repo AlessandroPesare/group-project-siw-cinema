@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/layout.html :: bootstrap">
 <head>
+<!-- da qui... -->
 <meta charset="utf-8">
-<title>Cinema Siw</title>
- <link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Amiri&family=Mrs+Sheppards&family=Sonsie+One&display=swap"
+	rel="stylesheet">
 <link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
+<!-- ...a qui, copiare in ogni html -->
+<title>Cinema Siw: Prenotazioni</title>
+<link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"> </header>
-	<section>
-		<div>
-			<h1>Elenco delle tue prenotazioni</h1>
-		</div>
-		<br>
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">Nome film</th>
-					<th scope="col">Data e ora spettacolo</th>
-					<th scope="col">Sala</th>
-					<th scope="col"></th>
-				</tr>
-			</thead>
+	<div class="space-container">
+		<section>
+			<div>
+				<div class="title bottom-border">Elenco delle tue prenotazioni</div>
+			</div>
+			<br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Nome film</th>
+						<th scope="col">Data e ora spettacolo</th>
+						<th scope="col">Sala</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
 
-			<tbody>
-				<tr th:each="prenotazione: ${user.prenotazioni}"> 
-					<td th:text="${prenotazione.spettacolo.film.titolo}"></td>
-					<td th:text="${prenotazione.spettacolo.dataConOra}"></td>
-					<td th:text="${prenotazione.spettacolo.sala.nome}"></td>
-					<td><a th:href="@{'/user/prenotazione/delete/' + ${prenotazione.id}}">cancella</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</section>
-	
+				<tbody>
+					<tr th:each="prenotazione: ${user.prenotazioni}">
+						<td th:text="${prenotazione.spettacolo.film.titolo}"></td>
+						<td th:text="${prenotazione.spettacolo.dataConOra}"></td>
+						<td th:text="${prenotazione.spettacolo.sala.nome}"></td>
+						<td>
+							<a th:href="@{'/user/prenotazione/delete/' + ${prenotazione.id}}">
+								<button class="btn btn-primary our-button">Cancella</button>
+								<!-- lecito o zozzata? -->
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
 	<footer th:replace="fragments/layout.html :: footer"></footer>
- <div th:replace="fragments/layout.html :: jsFiles"></div>
+	<div th:replace="fragments/layout.html :: jsFiles"></div>
 </body>
 </html>
