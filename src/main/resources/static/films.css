@@ -37,29 +37,10 @@
   text-decoration: none;
 }
 
-.Azione{
+.azione {
   margin-left: 7%;
   margin-bottom:10%;
-  width: 20%;
   margin-right: 7%;
-}
-
-#titolo{
-  display: flex;
-  align-items: center;
-}
-
-#titolo text{
-  font-size: 80%;
-  margin-top: 0.3%;
-  margin-left: 1%
-}
-
-button{
-  background-color: lightSkyBlue;
-  border-color: steelBlue;
-  width: 100%;
-  font-size: 15px;
 }
 
   

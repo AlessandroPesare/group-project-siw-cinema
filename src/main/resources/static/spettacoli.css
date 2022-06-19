@@ -2,10 +2,21 @@ li{
   padding-top: 10px;
   margin-right: 5%;
   padding-bottom: 10px;
+  
+  display: flex;
+  align-items: baseline;
 }
 
 li:hover{
   background-color: azure;
 }
-  
+
+li button {
+	margin-left: 40vw;
+}
+ 
+.success {
+	color: green;
+	font-weight: bold;
+}
 

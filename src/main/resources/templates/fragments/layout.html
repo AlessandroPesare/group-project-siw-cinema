@@ -15,8 +15,7 @@
 <!-- ============================================================================ -->
 <header th:fragment="navbar">
 	<h1>
-		<a href="/">CINEMA</a>
-		<a href="/">SIW</a>
+		<a href="/">CINEMA</a> <a href="/">SIW</a>
 	</h1>
 	<div class="navigationMenu">
 		<div>
@@ -28,10 +27,12 @@
 		<div>
 			<a href=""><strong>CHI SIAMO</strong></a>
 		</div>
+		<div th:if="${userLoggato}">
+			<a th:href="@{/user/prenota}"><strong>PRENOTAZIONI</strong></a>
+		</div>
 		<div>
-		<a th:if="${userLoggato}" th:href="@{/user/prenota}"><strong>PRENOTAZIONI</strong></a>
-			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>LOGIN </strong></a>
-			<a th:if="${userLoggato}" th:href="@{/logout}"><strong>LOGOUT</strong></a>
+			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>LOGIN
+			</strong></a> <a th:if="${userLoggato}" th:href="@{/logout}"><strong>LOGOUT</strong></a>
 		</div>
 	</div>
 </header>
@@ -41,10 +42,16 @@
 <!-- ============================================================================ -->
 <footer th:fragment="footer">
 	<div id="footerFlex">
-		<div><strong>Cinema Siw</strong></div>
-		<div>Via della Vasca Navale, 79 - 00146 - Roma </div>
-		<div><a href="tel:+39 3210456789">Tel. +39 3210456789</a></div> 
-		<div><a href="mailto:info@cinemasiw.it"> info@cinemasiw.it</a></div>
+		<div>
+			<strong>Cinema Siw</strong>
+		</div>
+		<div>Via della Vasca Navale, 79 - 00146 - Roma</div>
+		<div>
+			<a href="tel:+39 3210456789">Tel. +39 3210456789</a>
+		</div>
+		<div>
+			<a href="mailto:info@cinemasiw.it"> info@cinemasiw.it</a>
+		</div>
 	</div>
 </footer>
 

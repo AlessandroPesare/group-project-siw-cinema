@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <!-- da qui... -->
@@ -30,16 +30,15 @@
 						<span class="text" th:text="${film.descrizione}">descrizione</span>
 					</a>
 				</div>
-				<div class="Azione" th:if="${amministratoreLoggato}">
-					<form th:action="@{'/film/deleteForm' + '/' +${film.id}}"
-						method="post">
-						<button type="submit">Elimina</button>
+				<div class="azione" th:if="${amministratoreLoggato}">
+					<form th:action="@{'/film/deleteForm' + '/' +${film.id}}" method="post">
+						<button class="btn btn-primary our-button" type="submit">Elimina</button>
 					</form>
 				</div>
-				<div class="Azione" th:if="${userLoggato}">
+				<div class="azione" th:if="${userLoggato}">
 					<form th:action="@{'/user/prenotazione/film'+'/'+ ${film.id}}"
 						method="get">
-						<button type="submit">Prenota</button>
+						<button class="btn btn-primary our-button" type="submit">Prenota</button>
 					</form>
 				</div>
 			</div>

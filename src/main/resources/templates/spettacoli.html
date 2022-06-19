@@ -24,14 +24,17 @@
 		<div class="title bottom-border">
 			TUTTI GLI SPETTACOLI <span th:if="${film}" th:text="' DISPONIBILI PER ' + ${film.titolo}"></span>:
 		</div>
-		<div th:if="${prenotazioneRiuscita}" 	th:text="#{prenotazione.riuscita}"></div>
-		<div th:if="${prenotazioneFallita}" th:text="#{prenotazione.fallita}"></div>
+		<div class="success" th:if="${prenotazioneRiuscita}" 	th:text="#{prenotazione.riuscita}"></div>
+		<div class="error" th:if="${prenotazioneFallita}" th:text="#{prenotazione.fallita}"></div>
+		<br>
 		<ul>
 			<li th:each="sp : ${allSpettacoli}">
 				<span class="subtitle" th:text="${sp.film.titolo}"></span>
 				<span th:text="': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} + ' con ' + ${sp.numeroPosti} + ' posti disponibili' "></span>
-				<a th:if="${userLoggato}"
-				th:href="@{'/user/prenotazione/add/' + ${sp.id}}">Prenota</a></li>
+				<a th:if="${userLoggato}" th:href="@{'/user/prenotazione/add/' + ${sp.id}}">
+					<button class="btn btn-primary our-button" type="submit">Prenota</button>
+				</a>
+			</li>
 		</ul>
 	</div>
 	<footer th:replace="fragments/layout.html :: footer"></footer>
