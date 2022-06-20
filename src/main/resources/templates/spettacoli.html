@@ -42,7 +42,7 @@
 					<button class="btn btn-primary our-button" type="submit">Prenota</button>
 				</a>
 				<div class="azione" th:if="${amministratoreLoggato}">
-					<form th:action="@{'/spettacolo/deleteForm' + '/' +${sp.id}}" method="get">
+					<form th:action="@{'/spettacolo/delete' + '/' +${sp.id}}" method="get">
 						<button class="btn btn-primary our-button" type="submit">Elimina</button>
 					</form>
 				</div>

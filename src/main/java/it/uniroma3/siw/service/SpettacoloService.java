@@ -36,4 +36,9 @@ public class SpettacoloService {
 	public void addSpettacolo(Spettacolo spettacolo) {
 		repo.save(spettacolo);
 	}
+	
+	@Transactional
+	public void deleteById(Long id) {
+		repo.deleteById(id);
+	}
 }

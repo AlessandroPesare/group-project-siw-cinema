@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Spettacolo;
@@ -44,6 +45,14 @@ public class SpettacoloController {
 			return "spettacolo.html";
 		}
 		else return "spettacoloForm.html";
+	}
+	
+	@PostMapping("spettacolo/delete/{id}")
+	public String deleteSpettacolo(@PathVariable("id") Long id, Model model) {
+		spettacoloService.deleteById(id);
+		model.addAttribute("spettacoli", spettacoloService.findAllSpettacoli());
+		credentialsService.adattaAdUtente(model);
+		return "spettacoli.html";
 	}
 }
 
