@@ -1,23 +1,6 @@
-
-h2{
-  text-align: center;
-  margin-top: 5%;
-  margin-left: 5%;
-}
-
 .item {
   text-align:center;
-  margin-left: 5%;
-  margin-bottom: 20px;
-}
-
-button{
-  
-
-  background-color: azure;
-  border-radius: 40%;
-  font-size: 70%;
-  border-color: steelBlue;
+  margin-bottom: 40px;
 }
 
 

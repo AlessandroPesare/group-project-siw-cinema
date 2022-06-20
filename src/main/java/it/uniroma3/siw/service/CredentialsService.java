@@ -50,14 +50,17 @@ public class CredentialsService {
 			Credentials credentials = this.getCredentials(userDetails.getUsername());
 			if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
 				model.addAttribute("amministratoreLoggato",true);
+				model.addAttribute("userLoggato",false);
 			}
 			else if(credentials.getRole().equals(Credentials.DEFAULT_ROLE)) {
 				model.addAttribute("userLoggato",true);
+				model.addAttribute("amministratoreLoggato",false);
 			}
 		}
 		catch(Exception e)
 		{
-			// ritornare booleano?
+			model.addAttribute("userLoggato",false);
+			model.addAttribute("amministratoreLoggato",false);
 		}
 	}
 }

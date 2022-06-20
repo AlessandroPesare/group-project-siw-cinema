@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+<!-- da qui... -->
 <meta charset="utf-8">
- <title>Cinema Siw</title>
-  <link rel="stylesheet" href="/toDeleteFilm.css" ></link>
-  <link rel="stylesheet" href="/noImageBar.css"></link>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Amiri&family=Mrs+Sheppards&family=Sonsie+One&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
- </head>
+<!-- a qui, copiare in ogni html -->
+<title>Cinema Siw: Conferma eliminazione</title>
+<link rel="stylesheet" href="/toDeleteFilm.css"></link>
+</head>
 <body>
-<header th:replace="fragments/layout.html :: navbar"></header>
-  <h2>Conferma l'eliminazione</h2>
-  
-	<div class="item" th:text="'Vuoi davvero eliminare il film ' + ${film.titolo} + '? Tutti i dati andranno persi'">..</div>
-	
-	<div class="item"><button type="submit" th:form action="@{@{'film/delete' + '/' +${film.id}}}" formmethod="post" th:text = "CONFERMA">CONFERMA</button>
+	<header th:replace="fragments/layout.html :: navbar"></header>
+
+	<div class="space-container center">
+		<div class="title bottom-border">Conferma eliminazione</div>
+
+		<div class="item subtitle"
+			th:text="'Vuoi davvero eliminare il film ' + ${film.titolo} + '? Tutti i dati andranno persi'">..</div>
+
+		<div class="item">
+			<button class="btn btn-primary our-button" type="submit" th:form
+			action="@{@{'film/delete' + '/' +${film.id}}}" formmethod="get"
+				th:text="CONFERMA">CONFERMA</button>
+		</div>
 	</div>
 	<footer th:replace="fragments/layout.html :: footer"></footer>
-  </body>
+</body>
 </html>

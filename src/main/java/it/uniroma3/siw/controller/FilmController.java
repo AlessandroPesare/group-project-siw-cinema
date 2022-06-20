@@ -64,6 +64,7 @@ public class FilmController {
 
 	@PostMapping("/film")
 	public String addFilm(@Valid Film film, BindingResult bindingResult, Model model) {
+		credentialsService.adattaAdUtente(model);
 		if(!bindingResult.hasErrors()) {
 			filmService.addFilm(film);
 			model.addAttribute("film", film);
@@ -75,6 +76,7 @@ public class FilmController {
 	@GetMapping("/film/deleteForm/{id}")
 	public String toDeleteFilm(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("film", filmService.findById(id));
+		credentialsService.adattaAdUtente(model);
 		return "toDeleteFilm.html";
 	}
 
@@ -82,6 +84,7 @@ public class FilmController {
 	public String deleteFilm(@PathVariable("id") Long id, Model model) {
 		filmService.deleteById(id);
 		model.addAttribute("films", filmService.findAll());
+		credentialsService.adattaAdUtente(model);
 		return "films.html";
 	}
 

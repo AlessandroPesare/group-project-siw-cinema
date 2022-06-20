@@ -1,7 +1,5 @@
 package it.uniroma3.siw.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,17 +32,20 @@ public class AuthenticationController {
 	public String showRegisterForm (Model model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("credentials", new Credentials());
+		credentialsService.adattaAdUtente(model);
 		return "registerForm.html";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET) 
 	public String showLoginForm (Model model) {
+		credentialsService.adattaAdUtente(model);
 		return "loginForm.html";
 	}
 	
 	@RequestMapping(value = "/login-failed", method = RequestMethod.GET)
 	public String loginFailed(Model model) {
 		model.addAttribute("error", true);
+		credentialsService.adattaAdUtente(model);
 		return "loginForm";
 	}
 	
@@ -60,9 +61,11 @@ public class AuthenticationController {
     	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
     	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
     		model.addAttribute("amministratoreLoggato",true);
+    		model.addAttribute("userLoggato",false);
             return "index.html";
         }
 		model.addAttribute("userLoggato",true);
+		model.addAttribute("amministratoreLoggato",false);
         return "index.html";
     }
 	
@@ -83,8 +86,10 @@ public class AuthenticationController {
             // this also stores the User, thanks to Cascade.ALL policy
             credentials.setUser(user);
             credentialsService.saveCredentials(credentials);
+            credentialsService.adattaAdUtente(model);
             return "registrationSuccessful.html";
         }
+        credentialsService.adattaAdUtente(model);
         return "registerForm.html";
     }
 }
