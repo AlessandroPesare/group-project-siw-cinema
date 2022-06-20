@@ -31,11 +31,13 @@ public class SpettacoloController {
 	public String getSpettacoloForm(Model model) {
 		Spettacolo s = new Spettacolo();
 		model.addAttribute("spettacolo", s);
+		credentialsService.adattaAdUtente(model);
 		return "spettacoloForm.html";
 				}
 	
 	@PostMapping("/spettacolo")
 	public String addSpettacolo(@Valid Spettacolo spettacolo, BindingResult bindingResult, Model model) {
+		credentialsService.adattaAdUtente(model);
 		if(!bindingResult.hasErrors()) {
 			spettacoloService.addSpettacolo(spettacolo);
 			model.addAttribute("spettacolo",spettacolo);
