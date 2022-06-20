@@ -20,36 +20,8 @@
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
 	
-	<div class="space-container">
-		<div class="title bottom-border">Aggiungi Film</div>
-			
-		<form th:action="@{/film}" method="post" th:object="${film}">
-			<span th:if="${#fields.hasGlobalErrors()}">
-				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore
-					globale</p>
-			</span>
-			<div class="campo">
-				titolo:<input type="text" th:field="*{titolo}" />
-			</div>
-			<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
-			<div class="campo">
-				descrizione:<input type="text" th:field="*{descrizione}" />
-			</div>
-			<span th:if="${#fields.hasErrors('descrizione')}"
-				th:errors="*{descrizione}"></span>
-			<div class="campo">
-				genere:<input type="text" th:field="*{genere}" />
-			</div>
-			<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
-			<div class="campo">
-				regista<input type="text" th:field="*{regista}" />
-			</div>
-			<span th:if="${#fields.hasErrors('regista')}" th:errors="*{regista}"></span>
-			<div>
-				<button type="submit">Conferma</button>
-			</div>
-		</form>
-		
+	 <div class="space-container">
+		<div class="title bottom-border">Aggiungi Film</div>		
 		<form class="rows" th:action="@{/film}" method="POST"  th:object="${film}">
 				<div class="columns spaced-less">
 					<div>titolo:</div>
@@ -60,26 +32,26 @@
 				<div class="form-group columns spaced">
 					<div class="rows">
 						<input class="form-control slim-input" type="text" placeholder="" required
-						th:field="${titolo}" />
+						th:field="*{titolo}" />
 						<span class="error small" th:if="${#fields.hasErrors('titolo')}"
 						th:errors="*{titolo}"></span>
 					</div>
 					<div class="rows">
 						<input class="form-control slim-input" type="text" placeholder="" required
-							th:field="${descrizione}" />
+							th:field="*{descrizione}" />
 						<span class="error small" th:if="${#fields.hasErrors('descrizione')}"
 						th:errors="*{descrizione}"></span>
 					</div>
 					<div class="rows">
 						<input class="form-control slim-input" type="text" placeholder="" required
-							th:field="${genere}" />
+							th:field="*{genere}" />
 						<span class="error small" th:if="${#fields.hasErrors('genere')}"
 						th:errors="*{genere}"></span>
 					</div>
 					<div class="rows">
 						<input class="form-control slim-input" type="text" placeholder="" required
-							th:field="${regista}" />
-						<span class="error small" th:if="${#fields.hasErrors('user.cognome')}"
+							th:field="*{regista}" />
+						<span class="error small" th:if="${#fields.hasErrors('regista')}"
 						th:errors="*{regista}"></span>
 					</div>
 					<div>
