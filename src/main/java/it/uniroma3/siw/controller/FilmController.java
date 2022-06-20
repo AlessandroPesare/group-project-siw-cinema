@@ -27,6 +27,7 @@ public class FilmController {
 	@GetMapping("/film/Form")	// non chiaro chi lo chiama
 	public String getFilmForm(Model model) {
 		model.addAttribute("film", new Film());
+		credentialsService.adattaAdUtente(model);
 		return "filmForm.html";
 	}
 

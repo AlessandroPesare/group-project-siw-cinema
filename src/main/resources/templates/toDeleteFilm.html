@@ -28,9 +28,9 @@
 			th:text="'Vuoi davvero eliminare il film ' + ${film.titolo} + '? Tutti i dati andranno persi'">..</div>
 
 		<div class="item">
-			<button class="btn btn-primary our-button" type="submit" th:form
-			action="@{@{'film/delete' + '/' +${film.id}}}" formmethod="get"
-				th:text="CONFERMA">CONFERMA</button>
+			<form th:action="@{'/film/delete' + '/' + ${film.id}}" method="post">
+			<button class="btn btn-primary our-button" type="submit" th:text="CONFERMA">CONFERMA</button>
+		</form>
 		</div>
 	</div>
 	<footer th:replace="fragments/layout.html :: footer"></footer>
