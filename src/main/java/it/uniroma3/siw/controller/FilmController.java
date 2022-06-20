@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.uniroma3.siw.controller.validator.FilmValidator;
 import it.uniroma3.siw.model.Film;
 import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.FilmService;
@@ -23,6 +24,8 @@ public class FilmController {
 	private CredentialsService credentialsService;
 	@Autowired
 	private FilmService filmService;
+	@Autowired
+	private FilmValidator validator;
 
 	@GetMapping("/film/Form")
 	public String getFilmForm(Model model) {
@@ -66,7 +69,8 @@ public class FilmController {
 	@PostMapping("/film")
 	public String addFilm(@Valid Film film, BindingResult bindingResult, Model model) {
 		credentialsService.adattaAdUtente(model);
-		if(!bindingResult.hasErrors()) {
+		validator.validate(film, bindingResult);
+		if(!bindingResult.hasFieldErrors("duplicato")) {
 			filmService.addFilm(film);
 			model.addAttribute("film", film);
 			return "film.html";

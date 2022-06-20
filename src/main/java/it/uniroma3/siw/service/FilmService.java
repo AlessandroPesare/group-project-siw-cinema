@@ -38,5 +38,9 @@ public class FilmService {
 	public void deleteById(Long id) {
 		this.filmRepo.deleteById(id);
 	}
+
+	public boolean esisteFilm(Film film) {
+		return filmRepo.findByTitolo(film.getTitolo()) != null;
+	}
 	
 }

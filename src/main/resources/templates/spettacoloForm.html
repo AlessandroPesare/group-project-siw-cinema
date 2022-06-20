@@ -19,30 +19,42 @@
 
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
-	<h1>Aggiungi Spettacolo</h1>
-	<form th:action="@{/spettacolo}" method="post"
-		th:object="${spettacolo}">
-		<span th:if="${#fields.hasGlobalErrors()}">
-			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore
-				globale</p>
-		</span>
-		<div class="campo">
-			Data con ora:<input type="text" th:field="*{dataConOra}" />
-		</div>
-		<span th:if="${#fields.hasErrors('dataConOra')}" th:errors="*{dataConOra}"></span>
-		<div class="campo">
-			Titolo del film:<input type="text" th:field="*{film.titolo}" />
-		</div>
-		<span th:if="${#fields.hasErrors('film.titolo')}"
-			th:errors="*{film.titolo}"></span>
-		<div class="campo">
-			Sala:<input type="text" th:field="*{sala.nome}" />
-		</div>
-		<span th:if="${#fields.hasErrors('sala.nome')}" th:errors="*{sala.nome}"></span>
-		<div>
-			<button type="submit">Conferma</button>
-		</div>
-	</form>
+
+	<div class="space-container">
+		<div class="title bottom-border">Aggiungi Spettacolo</div>
+
+		<form class="rows" th:action="@{/film}" method="POST"
+			th:object="${spettacolo}">
+			<div class="columns spaced-less">
+				<div>Data e ora:</div>
+				<div>Film:</div>
+				<div>Sala:</div>
+			</div>
+			<div class="form-group columns spaced">
+				<div class="rows">
+					<input class="form-control slim-input" type="text" placeholder=""
+						required th:field="*{dataConOra}" /> <span class="error small"
+						th:if="${#fields.hasErrors('dataConOra')}" th:errors="*{dataConOra}"></span>
+				</div>
+				<div class="rows">
+					<input class="form-control slim-input" type="text" placeholder=""
+						required th:field="*{film}" /> <span class="error small"
+						th:if="${#fields.hasErrors('film')}"
+						th:errors="*{film}"></span>
+				</div>
+				<div class="rows">
+					<input class="form-control slim-input" type="text" placeholder=""
+						required th:field="*{sala}" /> <span class="error small"
+						th:if="${#fields.hasErrors('sala')}" th:errors="*{sala}"></span>
+				</div>
+				<div>
+					<button class="btn btn-primary our-button" type="submit">Aggiungi</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
 
