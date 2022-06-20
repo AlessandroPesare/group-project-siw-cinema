@@ -31,8 +31,9 @@
 			<a th:href="@{/user/prenota}"><strong>PRENOTAZIONI</strong></a>
 		</div>
 		<div>
-			<a th:unless="${userLoggato}" th:href="@{/login}"><strong>LOGIN
-			</strong></a> <a th:if="${userLoggato}" th:href="@{/logout}"><strong>LOGOUT</strong></a>
+			<a th:unless="${userLoggato or amministratoreLoggato}" th:href="@{/login}"><strong>LOGIN
+			</strong></a> 
+			<a th:if="${userLoggato or amministratoreLoggato}" th:href="@{/logout}"><strong>LOGOUT</strong></a>
 		</div>
 	</div>
 </header>
