@@ -41,6 +41,11 @@
 				<a th:if="${userLoggato}" th:href="@{'/user/prenotazione/add/' + ${sp.id}}">
 					<button class="btn btn-primary our-button" type="submit">Prenota</button>
 				</a>
+				<div class="azione" th:if="${amministratoreLoggato}">
+					<form th:action="@{'/spettacolo/deleteForm' + '/' +${sp.id}}" method="get">
+						<button class="btn btn-primary our-button" type="submit">Elimina</button>
+					</form>
+				</div>
 			</li>
 		</ul>
 	</div>
