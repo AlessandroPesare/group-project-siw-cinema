@@ -26,15 +26,15 @@ public class SpettacoloController {
 		credentialsService.adattaAdUtente(model);
 		return "spettacoli.html";
 	}
-	
+
 	@GetMapping("/spettacolo")
 	public String getSpettacoloForm(Model model) {
 		Spettacolo s = new Spettacolo();
 		model.addAttribute("spettacolo", s);
 		credentialsService.adattaAdUtente(model);
 		return "spettacoloForm.html";
-				}
-	
+	}
+
 	@PostMapping("/spettacolo")
 	public String addSpettacolo(@Valid Spettacolo spettacolo, BindingResult bindingResult, Model model) {
 		credentialsService.adattaAdUtente(model);
