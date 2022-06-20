@@ -78,7 +78,7 @@ public class FilmController {
 		return "toDeleteFilm.html";
 	}
 
-	@GetMapping("film/delete/{id}")
+	@PostMapping("film/delete/{id}")
 	public String deleteFilm(@PathVariable("id") Long id, Model model) {
 		filmService.deleteById(id);
 		model.addAttribute("films", filmService.findAll());
