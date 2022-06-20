@@ -1,42 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>Cinema Siw</title>
-<link rel="stylesheet" href="/form.css"></link>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Amiri&family=Mrs+Sheppards&family=Sonsie+One&display=swap"
+	rel="stylesheet">
 <link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
+<title>Cinema Siw: Aggiungi film</title>
+<link rel="stylesheet" href="/form.css"></link>
 </head>
 
 <body>
-<header th:replace="fragments/layout.html :: navbar"></header>
-	<h1>Aggiungi Film</h1>
-	<form th:action="@{/film}" method="post" th:object="${film}">
-		<span th:if="${#fields.hasGlobalErrors()}">
-			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore
-				globale</p>
-		</span>
-		<div class="campo">
-			titolo:<input type="text" th:field="*{titolo}" />
-		</div>
-		<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
-		<div class="campo">
-			descrizione:<input type="text" th:field="*{descrizione}" />
-		</div>
-		<span th:if="${#fields.hasErrors('descrizione')}"
-			th:errors="*{descrizione}"></span>
-		<div class="campo">
-			genere:<input type="text" th:field="*{genere}" />
-		</div>
-		<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
-		<div class="campo">
-			regista<input type="text" th:field="*{regista}" />
-		</div>
-		<span th:if="${#fields.hasErrors('regista')}" th:errors="*{regista}"></span>
-		<div>
-			<button type="submit">Conferma</button>
-		</div>
-	</form>
+	<header th:replace="fragments/layout.html :: navbar"></header>
+	<div class="space-container">
+		<div class="title bottom-border">Aggiungi Film</div>
+			
+		<form th:action="@{/film}" method="post" th:object="${film}">
+			<span th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore
+					globale</p>
+			</span>
+			<div class="campo">
+				titolo:<input type="text" th:field="*{titolo}" />
+			</div>
+			<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+			<div class="campo">
+				descrizione:<input type="text" th:field="*{descrizione}" />
+			</div>
+			<span th:if="${#fields.hasErrors('descrizione')}"
+				th:errors="*{descrizione}"></span>
+			<div class="campo">
+				genere:<input type="text" th:field="*{genere}" />
+			</div>
+			<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
+			<div class="campo">
+				regista<input type="text" th:field="*{regista}" />
+			</div>
+			<span th:if="${#fields.hasErrors('regista')}" th:errors="*{regista}"></span>
+			<div>
+				<button type="submit">Conferma</button>
+			</div>
+		</form>
+	</div>
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
 

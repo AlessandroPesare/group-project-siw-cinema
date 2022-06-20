@@ -24,7 +24,7 @@ public class FilmController {
 	@Autowired
 	private FilmService filmService;
 
-	@GetMapping("/film/Form")	// non chiaro chi lo chiama
+	@GetMapping("/film/Form")
 	public String getFilmForm(Model model) {
 		model.addAttribute("film", new Film());
 		credentialsService.adattaAdUtente(model);

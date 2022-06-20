@@ -1,4 +1,5 @@
-	<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <!-- da qui... -->
@@ -23,22 +24,24 @@
 	<div class="space-container">
 		<div id="flexBody">
 			<div class="row bottom-border">
-			<div class="title">I FILM IN PROGRAMMA</div>
-			<div  th:if="${amministratoreLoggato}">
+				<div class="title">I FILM IN PROGRAMMA</div>
+				<div th:if="${amministratoreLoggato}">
 					<form th:action="@{/film/Form}" method="get">
-						<button class="btn btn-primary our-button" type="submit">+ Aggiungi</button>
+						<button class="btn btn-primary our-button" type="submit">+
+							Aggiungi</button>
 					</form>
-					</div>
-				</div>	
+				</div>
+			</div>
 			<div class="elementoLista" th:each="film : ${films}">
 				<div class="item">
-					<a th:href="@{'/film' + '/' + ${film.id}}" class="filmLink">
-						<span class="subtitle" th:text="${film.titolo}">titolo film</span><br/>
+					<a th:href="@{'/film' + '/' + ${film.id}}" class="filmLink"> <span
+						class="subtitle" th:text="${film.titolo}">titolo film</span><br />
 						<span class="text" th:text="${film.descrizione}">descrizione</span>
 					</a>
 				</div>
 				<div class="azione" th:if="${amministratoreLoggato}">
-					<form th:action="@{'/film/deleteForm' + '/' +${film.id}}" method="get">
+					<form th:action="@{'/film/deleteForm' + '/' +${film.id}}"
+						method="get">
 						<button class="btn btn-primary our-button" type="submit">Elimina</button>
 					</form>
 				</div>
