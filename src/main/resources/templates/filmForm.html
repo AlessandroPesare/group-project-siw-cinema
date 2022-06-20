@@ -19,6 +19,7 @@
 
 <body>
 	<header th:replace="fragments/layout.html :: navbar"></header>
+	
 	<div class="space-container">
 		<div class="title bottom-border">Aggiungi Film</div>
 			
@@ -48,7 +49,47 @@
 				<button type="submit">Conferma</button>
 			</div>
 		</form>
+		
+		<form class="rows" th:action="@{/film}" method="POST"  th:object="${film}">
+				<div class="columns spaced-less">
+					<div>titolo:</div>
+					<div>descrizione:</div>
+					<div>genere:</div>
+					<div>regista:</div>
+				</div>
+				<div class="form-group columns spaced">
+					<div class="rows">
+						<input class="form-control slim-input" type="text" placeholder="" required
+						th:field="${titolo}" />
+						<span class="error small" th:if="${#fields.hasErrors('titolo')}"
+						th:errors="*{titolo}"></span>
+					</div>
+					<div class="rows">
+						<input class="form-control slim-input" type="text" placeholder="" required
+							th:field="${descrizione}" />
+						<span class="error small" th:if="${#fields.hasErrors('descrizione')}"
+						th:errors="*{descrizione}"></span>
+					</div>
+					<div class="rows">
+						<input class="form-control slim-input" type="text" placeholder="" required
+							th:field="${genere}" />
+						<span class="error small" th:if="${#fields.hasErrors('genere')}"
+						th:errors="*{genere}"></span>
+					</div>
+					<div class="rows">
+						<input class="form-control slim-input" type="text" placeholder="" required
+							th:field="${regista}" />
+						<span class="error small" th:if="${#fields.hasErrors('user.cognome')}"
+						th:errors="*{regista}"></span>
+					</div>
+					<div>
+					<button class="btn btn-primary our-button" type="submit">Registrati</button>
+					</div>
+				</div>				
+		</form>
+		
 	</div>
+	
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
 
