@@ -20,6 +20,12 @@ li button {
 	font-weight: bold;
 }
 
+.azione {
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+
 .row{
 	display: flex;
 	margin-right: 7%;
