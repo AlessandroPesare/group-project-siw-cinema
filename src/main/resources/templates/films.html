@@ -22,7 +22,14 @@
 	<header th:replace="fragments/layout.html :: navbar"></header>
 	<div class="space-container">
 		<div id="flexBody">
-			<div class="title bottom-border">I FILM IN PROGRAMMA</div>
+			<div class="row bottom-border">
+			<div class="title">I FILM IN PROGRAMMA</div>
+			<div  th:if="${amministratoreLoggato}">
+					<form th:action="@{/film/Form}" method="get">
+						<button class="btn btn-primary our-button" type="submit">+ Aggiungi</button>
+					</form>
+					</div>
+				</div>	
 			<div class="elementoLista" th:each="film : ${films}">
 				<div class="item">
 					<a th:href="@{'/film' + '/' + ${film.id}}" class="filmLink">
