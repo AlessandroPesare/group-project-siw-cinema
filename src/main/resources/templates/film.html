@@ -25,6 +25,7 @@
 	<div class="space-container">
 		<div id="flexBody">
 			<div class="title bottom-border center" th:text="${film.titolo}">titolo</div>
+			<div class="success center" th:text="#{film.inserito} + ' ' + ${film.titolo}"></div>
 			<p class="center" th:text="${film.descrizione}">descrizione film</p>
 			<div class="line">
 				<div class="subtitle">GENERE:</div>

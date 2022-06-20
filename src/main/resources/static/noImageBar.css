@@ -123,6 +123,11 @@ header > h1 > a:hover {
 	color: red;
 	font-weight: bold;
 }
+ 
+.success {
+	color: green;
+	font-weight: bold;
+}
 
 .bottom-border {
 	padding-bottom: 3vh;

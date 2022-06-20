@@ -73,6 +73,7 @@ public class FilmController {
 		if(!bindingResult.hasFieldErrors("duplicato")) {
 			filmService.addFilm(film);
 			model.addAttribute("film", film);
+			model.addAttribute("nuovo", true);
 			return "film.html";
 		}
 		else return "filmForm.html";
