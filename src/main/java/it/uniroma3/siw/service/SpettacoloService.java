@@ -2,6 +2,8 @@ package it.uniroma3.siw.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +18,22 @@ public class SpettacoloService {
 	public List<Spettacolo> findAllSpettacoliPerFilm(Long idFilm) {
 		return repo.findByFilmId(idFilm);
 	}
-	
+
 	public void aggiornaPostiDisponibili(Spettacolo spettacolo) {
 		spettacolo.setNumeroPosti(spettacolo.getNumeroPosti()-1);
 		repo.save(spettacolo);
 	}
-	
+
 	public List<Spettacolo> findAllSpettacoli() {
 		return (List<Spettacolo>) repo.findAll();
 	}
 
 	public Spettacolo findById(Long spettacoloId) {
 		return repo.findById(spettacoloId).orElse(null);
+	}
+
+	@Transactional
+	public void addSpettacolo(Spettacolo spettacolo) {
+		repo.save(spettacolo);
 	}
 }

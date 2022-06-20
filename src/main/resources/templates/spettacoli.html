@@ -21,9 +21,16 @@
 <body>
 	<div class="space-container">
 		<header th:replace="fragments/layout.html :: navbar"></header>
-		<div class="title bottom-border">
+		<div class="row bottom-border">
+		<div class="title">
 			TUTTI GLI SPETTACOLI <span th:if="${film}" th:text="' DISPONIBILI PER ' + ${film.titolo}"></span>:
 		</div>
+		<div  th:if="${amministratoreLoggato}">
+					<form th:action="@{/spettacolo}" method="get">
+						<button class="btn btn-primary our-button" type="submit">+ Aggiungi</button>
+					</form>
+					</div>
+				</div>	
 		<div class="success" th:if="${prenotazioneRiuscita}" 	th:text="#{prenotazione.riuscita}"></div>
 		<div class="error" th:if="${prenotazioneFallita}" th:text="#{prenotazione.fallita}"></div>
 		<br>
