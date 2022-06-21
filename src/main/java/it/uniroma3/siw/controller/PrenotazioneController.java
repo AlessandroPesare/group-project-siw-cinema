@@ -59,6 +59,7 @@ public class PrenotazioneController {
 	public String aggiungiPrenotazionePerFilm(@PathVariable("id1") Long spettacoloId, @PathVariable("id2") Long filmId, Model model) {
 		addPrenotazione(spettacoloId, model);
     	model.addAttribute("allSpettacoli", spettService.findAllSpettacoliPerFilm(filmId));
+    	model.addAttribute("film", filmService.findById(filmId));
 		credService.adattaAdUtente(model);
 		return "spettacoli.html";	
 	}
