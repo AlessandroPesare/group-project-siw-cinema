@@ -1,6 +1,5 @@
 .titolo {
 	color: #E00000;
-	font-family: Lucida Handwriting;
 }
 
 .paragrafo {
@@ -12,4 +11,11 @@
 	color: brown;
 	font-family: Lucida Handwriting;
 	background-color: black;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
 }
