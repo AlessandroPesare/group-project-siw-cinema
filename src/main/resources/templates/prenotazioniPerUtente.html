@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="/footer.css"></link>
 <!-- ...a qui, copiare in ogni html -->
 <title>Cinema Siw: Prenotazioni</title>
-<link rel="stylesheet" href="/prenotazioniPerUtente.css"></link>
 </head>
 <body>
 	<header th:replace="fragments/layout.html :: navbar"> </header>
@@ -44,7 +43,7 @@
 						<td>
 							<a th:href="@{'/user/prenotazione/delete/' + ${prenotazione.id}}">
 								<button class="btn btn-primary our-button">Cancella</button>
-								<!-- lecito o zozzata? -->
+								<!-- lecito? -->
 							</a>
 						</td>
 					</tr>
@@ -52,6 +51,8 @@
 			</table>
 		</section>
 	</div>
+	<br/>
+	<br/>
 	<footer th:replace="fragments/layout.html :: footer"></footer>
 	<div th:replace="fragments/layout.html :: jsFiles"></div>
 </body>

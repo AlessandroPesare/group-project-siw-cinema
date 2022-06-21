@@ -38,9 +38,14 @@
 			<li th:each="sp : ${allSpettacoli}">
 				<span class="subtitle" th:text="${sp.film.titolo}"></span>
 				<span th:text="': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} + ' con ' + ${sp.numeroPosti} + ' posti disponibili' "></span>
-				<a th:if="${userLoggato}" th:href="@{'/user/prenotazione/add/' + ${sp.id}}">
+				<a th:if="${film}" th:href="@{'/user/prenotazione/film/add/' + ${sp.id} + '/' + ${film.id}}">
 					<button class="btn btn-primary our-button" type="submit">Prenota</button>
 				</a>
+				<span th:unless="${film}">
+					<a th:if="${userLoggato}"  th:href="@{'/user/prenotazione/add/' + ${sp.id}}">
+						<button class="btn btn-primary our-button" type="submit">Prenota</button>
+					</a>
+				</span>
 				<div class="azione" th:if="${amministratoreLoggato}">
 					<form th:action="@{'/spettacolo/delete' + '/' +${sp.id}}" method="get">
 						<button class="btn btn-primary our-button" type="submit">Elimina</button>
