@@ -1,6 +1,7 @@
 package it.uniroma3.siw.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,6 +18,8 @@ public class Spettacolo {
 	private Long id;
 	
 	private LocalDateTime dataConOra;
+
+
 	
 	private int numeroPosti;
 	
@@ -41,8 +44,15 @@ public class Spettacolo {
 		return dataConOra;
 	}
 
-	public void setDataConOra(LocalDateTime dataConOra) {
+	/*public void setDataConOra(LocalDateTime dataConOra) {
 		this.dataConOra = dataConOra;
+	}*/
+	
+	public void setDataConOra(String data) {
+		
+		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hh:mm");
+		this.dataConOra = LocalDateTime.parse(data, DateTimeFormatter.ISO_DATE_TIME);
+		
 	}
 
 	public int getNumeroPosti() {
@@ -67,6 +77,7 @@ public class Spettacolo {
 
 	public void setSala(Sala sala) {
 		this.sala = sala;
+		this.numeroPosti = sala.getNumeroPosti();
 	}
 	
 	

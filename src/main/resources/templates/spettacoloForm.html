@@ -23,7 +23,7 @@
 	<div class="space-container">
 		<div class="title bottom-border">Aggiungi Spettacolo</div>
 
-		<form class="rows" th:action="@{/film}" method="POST"
+		<form class="rows" th:action="@{/spettacolo}" method="POST"
 			th:object="${spettacolo}">
 			<div class="columns spaced-less">
 				<div>Data e ora:</div>
@@ -32,19 +32,25 @@
 			</div>
 			<div class="form-group columns spaced">
 				<div class="rows">
-					<input class="form-control slim-input" type="text" placeholder=""
+					<input class="form-control slim-input" type="datetime-local" placeholder=""
 						required th:field="*{dataConOra}" /> <span class="error small"
 						th:if="${#fields.hasErrors('dataConOra')}" th:errors="*{dataConOra}"></span>
 				</div>
 				<div class="rows">
-					<input class="form-control slim-input" type="text" placeholder=""
-						required th:field="*{film}" /> <span class="error small"
+					<select class="form-control slim-input" type="text" placeholder=""
+						required th:field="*{film}" > 
+						<option th:each="f : ${films}" th:value="${f.id}" th:text="${f.titolo}"/>
+					</select>
+						<span class="error small"
 						th:if="${#fields.hasErrors('film')}"
 						th:errors="*{film}"></span>
 				</div>
 				<div class="rows">
-					<input class="form-control slim-input" type="text" placeholder=""
-						required th:field="*{sala}" /> <span class="error small"
+					<select class="form-control slim-input" type="text" placeholder=""
+						required th:field="*{sala}" > 
+						<option th:each="s : ${sale}" th:value="${s.id}" th:text="${s.nome}"/>
+						</select>
+						<span class="error small"
 						th:if="${#fields.hasErrors('sala')}" th:errors="*{sala}"></span>
 				</div>
 				<div>

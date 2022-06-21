@@ -47,7 +47,7 @@
 					</a>
 				</span>
 				<div class="azione" th:if="${amministratoreLoggato}">
-					<form th:action="@{'/spettacolo/delete' + '/' +${sp.id}}" method="get">
+					<form th:action="@{'/spettacolo/delete' + '/' +${sp.id}}" method="post">
 						<button class="btn btn-primary our-button" type="submit">Elimina</button>
 					</form>
 				</div>
