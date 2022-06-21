@@ -19,7 +19,6 @@ public class Sala {
 	@Min(0)
 	private int numeroPosti;
 	
-	
 	public Long getId() {
 		return id;
 	}

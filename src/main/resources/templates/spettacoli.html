@@ -21,36 +21,41 @@
 <body>
 	<div class="space-container">
 		<header th:replace="fragments/layout.html :: navbar"></header>
-		<div class="row bottom-border">
-		<div class="title">
-			TUTTI GLI SPETTACOLI <span th:if="${film}" th:text="' DISPONIBILI PER ' + ${film.titolo}"></span>:
-		</div>
-		<div  th:if="${amministratoreLoggato}">
+		<div class="bottom-border">
+			<div class="title">
+				TUTTI GLI SPETTACOLI <span th:if="${film}"
+					th:text="' DISPONIBILI PER ' + ${film.titolo}"></span>:
+				<div th:if="${amministratoreLoggato}">
 					<form th:action="@{/spettacolo}" method="get">
-						<button class="btn btn-primary our-button" type="submit">+ Aggiungi</button>
+						<button class="btn btn-primary our-button" type="submit">+
+							Aggiungi</button>
 					</form>
-					</div>
-				</div>	
-		<div class="success" th:if="${prenotazioneRiuscita}" 	th:text="#{prenotazione.riuscita}"></div>
-		<div class="error" th:if="${prenotazioneFallita}" th:text="#{prenotazione.fallita}"></div>
+				</div>
+			</div>
+
+		</div>
+		<div class="success" th:if="${prenotazioneRiuscita}"
+			th:text="#{prenotazione.riuscita}"></div>
+		<div class="error" th:if="${prenotazioneFallita}"
+			th:text="#{prenotazione.fallita}"></div>
 		<br>
 		<ul>
 			<li th:each="sp : ${allSpettacoli}">
-				<span class="subtitle" th:text="${sp.film.titolo}"></span>
-				<span th:text="': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} + ' con ' + ${sp.numeroPosti} + ' posti disponibili' "></span>
-				<a th:if="${film}" th:href="@{'/user/prenotazione/film/add/' + ${sp.id} + '/' + ${film.id}}">
+				<span class="expand">
+					<span class="subtitle" th:text="${sp.film.titolo}"></span>
+					<span th:text="': sala ' + ${sp.sala.nome} + ' , il giorno ' + ${sp.dataConOra} + ' con ' + ${sp.numeroPosti} + ' posti disponibili' "></span>
+				</span>
+				<a class="expand" th:if="${film}" th:href="@{'/user/prenotazione/film/add/' + ${sp.id} + '/' + ${film.id}}">
 					<button class="btn btn-primary our-button" type="submit">Prenota</button>
-				</a>
-				<span th:unless="${film}">
-					<a th:if="${userLoggato}"  th:href="@{'/user/prenotazione/add/' + ${sp.id}}">
+				</a> 
+				<span th:unless="${film}"> 
+					<a class="expand" th:if="${userLoggato}" th:href="@{'/user/prenotazione/add/' + ${sp.id}}">
 						<button class="btn btn-primary our-button" type="submit">Prenota</button>
 					</a>
-				</span>
-				<div class="azione" th:if="${amministratoreLoggato}">
-					<form th:action="@{'/spettacolo/delete' + '/' +${sp.id}}" method="post">
+					<a class="expand" th:if="${amministratoreLoggato}" th:href="@{'/spettacolo/delete' + '/' +${sp.id}}">
 						<button class="btn btn-primary our-button" type="submit">Elimina</button>
-					</form>
-				</div>
+					</a>
+				</span>
 			</li>
 		</ul>
 	</div>

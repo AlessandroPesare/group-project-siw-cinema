@@ -18,8 +18,6 @@ public class Spettacolo {
 	private Long id;
 	
 	private LocalDateTime dataConOra;
-
-
 	
 	private int numeroPosti;
 	
