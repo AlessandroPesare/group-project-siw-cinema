@@ -22,6 +22,8 @@ public class MainController {
 	
 	@GetMapping("/info")
 	public String info(Model model) {
+		credentialsService.adattaAdUtente(model);
+
 		return "info.html";
 	}  
 }
