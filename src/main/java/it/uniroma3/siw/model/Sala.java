@@ -19,6 +19,14 @@ public class Sala {
 	@Min(0)
 	private int numeroPosti;
 	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
