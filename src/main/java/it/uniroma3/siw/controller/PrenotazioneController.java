@@ -49,6 +49,21 @@ public class PrenotazioneController {
 	
 	@GetMapping("/user/prenotazione/add/{id}")
 	public String aggiungiPrenotazione(@PathVariable("id") Long spettacoloId, Model model) {
+		addPrenotazione(spettacoloId, model);
+    	model.addAttribute("allSpettacoli", spettService.findAllSpettacoli());
+		credService.adattaAdUtente(model);
+		return "spettacoli.html";	
+	}
+	
+	@GetMapping("/user/prenotazione/film/add/{id1}/{id2}")
+	public String aggiungiPrenotazionePerFilm(@PathVariable("id1") Long spettacoloId, @PathVariable("id2") Long filmId, Model model) {
+		addPrenotazione(spettacoloId, model);
+    	model.addAttribute("allSpettacoli", spettService.findAllSpettacoliPerFilm(filmId));
+		credService.adattaAdUtente(model);
+		return "spettacoli.html";	
+	}
+
+	private void addPrenotazione(Long spettacoloId, Model model) {
 		Prenotazione prenotazione = new Prenotazione();	
 		prenotazione.setSpettacolo(spettService.findById(spettacoloId));
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -62,9 +77,6 @@ public class PrenotazioneController {
     	else {
     		model.addAttribute("prenotazioneFallita", true);
     	}
-    	model.addAttribute("allSpettacoli", spettService.findAllSpettacoli());
-		credService.adattaAdUtente(model);
-		return "spettacoli.html";	
 	}
 	
 	@GetMapping("/user/prenota")

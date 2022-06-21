@@ -12,37 +12,39 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="/noImageBar.css"></link>
 <link rel="stylesheet" href="/footer.css"></link>
-<title>Cinema Siw: Dove siamo?</title>
-<link rel="stylesheet" href="/imageBar.css"></link>
+<!-- a qui, copiare in ogni html -->
+<title>DOVE SIAMO</title>
 <link rel="stylesheet" href="/info.css"></link>
 </head>
 <body
 	style="background: url(https://www.key4biz.it/wp-content/uploads/2019/02/private-cinema.jpg); background-size: cover; background-repeat: no-repeat;">
-	<div>
+	<header th:replace="fragments/layout.html :: navbar"></header>
+	<div class="space-container">
 		<div>
-			<h1 class="titolo">Dove siamo?</h1>
+			<h1 class="titolo title">Dove siamo?</h1>
 			<br>
-			<p> <span class = "paragrafo">Ci trovi in Via Argentina, 30, 00197 Roma RM</span>
+			<p>
+				<span class="paragrafo">Ci trovi in Via Argentina, 30, 00197
+					Roma RM</span>
 			</p>
 		</div>
 		<div>
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2968.1642890875173!2d12.474136614553347!3d41.932320979217884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x132f60dc69fd2255%3A0xb0dc13e357e0072d!2sVia%20Argentina%2C%20Roma%20RM!3m2!1d41.932320999999995!2d12.4763253!5e0!3m2!1sit!2sit!4v1655720021848!5m2!1sit!2sit"
-				width="100%" height="350" style="border-radius: 10px" allowfullscreen=""
-				loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				width="100%" height="300" style="border-radius: 10px"
+				allowfullscreen="" loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"></iframe>
 		</div>
-		<br>
-		<br>
-	</div>
-	<section>
-		<span class=paragrafo2 align="center">Alcuni film storici che
-			vengono riprodotti l'ultimo venerdì del mese e che non sono
-			prenotabili</span>
 		<br> <br>
+	</div>
+	<section class = sezione-contenuto>
+		<span class=paragrafo>Alcuni film storici che
+			vengono riprodotti l'ultimo venerdì del mese e che non sono
+			prenotabili</span> <br> <br>
 		<div class="row">
 			<div class="col col-md-4">
 				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="/images/pastaAllaNorma.jpg"
+					<img class="card-img-top" src="/images/pulpFiction.jpg"
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"></h5>
@@ -52,7 +54,7 @@
 			</div>
 			<div class="col col-md-4">
 				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="/images/RisoAllaCantonese.jpg"
+					<img class="card-img-top" src="/images/backToFuture.jpg"
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"></h5>
@@ -62,7 +64,7 @@
 			</div>
 			<div class="col col-md-4">
 				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="/images/filettoAlPepeVerde.jpg"
+					<img class="card-img-top" src="/images/starWars.jpg"
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"></h5>
@@ -76,7 +78,7 @@
 		<div class="row">
 			<div class="col col-md-4">
 				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="/images/pesceSpadaAllaSiciliana.jpg"
+					<img class="card-img-top" src="/images/goodFellas.jpg"
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"></h5>
@@ -86,7 +88,7 @@
 			</div>
 			<div class="col col-md-4">
 				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="/images/calamari.jpg"
+					<img class="card-img-top" src="/images/laDolceVita.jpg"
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"></h5>
@@ -96,7 +98,7 @@
 			</div>
 			<div class="col col-md-4">
 				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="/images/carbo.jpg"
+					<img class="card-img-top" src="/images/theSilenceOfTheLambs.jpg"
 						alt="Card image cap">
 					<div class="card-body">
 						<h5 class="card-title"></h5>
@@ -107,9 +109,7 @@
 		</div>
 	</section>
 	<div th:replace="fragments/layout.html :: jsFiles"></div>
-	<div class="bottone">
-		<a class="btn btn-info btn-sm twtr" href="/default" target="_b">Back</a>
-	</div>
 	<br>
+	<footer th:replace="fragments/layout.html :: footer"></footer>
 </body>
 </html>
