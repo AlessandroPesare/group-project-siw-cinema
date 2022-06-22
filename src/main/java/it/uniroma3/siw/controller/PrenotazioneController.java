@@ -36,7 +36,7 @@ public class PrenotazioneController {
 	@Autowired
 	private CredentialsService credService;
 	
-	@PostMapping("/prenotazione")	// non usiamo?
+	@PostMapping("/prenotazione")
 	public String addPrenotazione(@Valid @ModelAttribute("prenotazione") Prenotazione prenotazione, BindingResult br, Model model) {
 		if(!br.hasErrors()) {
 			prenService.savePrenotazione(prenotazione);
