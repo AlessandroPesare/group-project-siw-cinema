@@ -62,7 +62,7 @@ public class SpettacoloController {
 		else return "spettacoloForm.html";
 	}
 	
-	@PostMapping("spettacolo/delete/{id}")
+	@GetMapping("spettacolo/delete/{id}")
 	public String deleteSpettacolo(@PathVariable("id") Long id, Model model) {
 		spettacoloService.deleteById(id);
 		model.addAttribute("allSpettacoli", spettacoloService.findAllSpettacoli());
