@@ -62,11 +62,8 @@ public class SpettacoloController {
 		else return "spettacoloForm.html";
 	}
 	
-<<<<<<< .merge_file_5i2vmB
+
 	@GetMapping("spettacolo/delete/{id}")
-=======
-	@PostMapping("spettacolo/delete/{id}")
->>>>>>> .merge_file_HfIP29
 	public String deleteSpettacolo(@PathVariable("id") Long id, Model model) {
 		spettacoloService.deleteById(id);
 		model.addAttribute("allSpettacoli", spettacoloService.findAllSpettacoli());

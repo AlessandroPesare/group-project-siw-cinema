@@ -21,7 +21,7 @@ public class PrenotazioneService {
 	
 	@Transactional
 	public boolean savePrenotazione(Prenotazione prenotazione) {
-		if(pr.findBySpettacoloIdAndUtenteId(prenotazione.getSpettacolo().getId(), prenotazione.getUtente().getId()) != null)
+		if((pr.findBySpettacoloIdAndUtenteId(prenotazione.getSpettacolo().getId(), prenotazione.getUtente().getId()) != null)||(prenotazione.getSpettacolo().getNumeroPosti()<=0))
 			return false;
 		pr.save(prenotazione);
 		return true;

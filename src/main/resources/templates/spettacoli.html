@@ -38,6 +38,8 @@
 			th:text="#{prenotazione.riuscita}"></div>
 		<div class="error" th:if="${prenotazioneFallita}"
 			th:text="#{prenotazione.fallita}"></div>
+		<div class="error" th:if="${nonDisponibile}"
+			th:text="#{prenotazione.noPosti}"></div>
 		<br>
 		<ul>
 			<li th:each="sp : ${allSpettacoli}">

@@ -74,9 +74,13 @@ public class PrenotazioneController {
 //    	user.addPrenotazione(prenotazione);	non serve
     	if(prenService.savePrenotazione(prenotazione)) {
     		model.addAttribute("prenotazioneRiuscita", true);
+    		spettService.prenota(spettacoloId);
     	}
     	else {
-    		model.addAttribute("prenotazioneFallita", true);
+    		if(prenotazione.getSpettacolo().getNumeroPosti()<=0)
+    			model.addAttribute("nonDisponibile", true);
+    		else
+    			model.addAttribute("prenotazioneFallita", true);
     	}
 	}
 	
@@ -110,6 +114,7 @@ public class PrenotazioneController {
 	
 	@GetMapping("/user/prenotazione/delete/{id}")
 	public String deletePrenotazione(@PathVariable("id") Long id, Model model) {
+		spettService.libera(id);
 		prenService.deletePrenotazione(id);
 		return "redirect:/user/prenota";
 	}
