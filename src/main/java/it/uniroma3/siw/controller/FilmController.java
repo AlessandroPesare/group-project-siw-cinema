@@ -48,6 +48,7 @@ public class FilmController {
 			Film film = filmService.findByTitolo(nome);
 			if(film != null) {
 				model.addAttribute("film", film);
+				credentialsService.adattaAdUtente(model);
 				return "film.html";
 			}
 			else { // il film non esiste
